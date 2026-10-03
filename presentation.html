@@ -353,8 +353,186 @@
             </div>
         </section>
 
-        <!-- Slide 3: Live Demo Flow -->
+        <!-- Slide 3: System Architecture (SVG Vector Diagram) -->
         <section class="slide" data-slide="3">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <div class="badge badge-purple" style="margin-bottom: 0;">🏛️ System Architecture & Tech Stack</div>
+                <div style="font-size: 0.85rem; color: #94A3B8;">✈️ 100% Offline • localhost:11434 • Zero Cloud Calls</div>
+            </div>
+            <h2 style="margin-bottom: 12px; font-size: 1.85rem;">Decoupled, Deterministic &amp; Zero-Latency Pipeline</h2>
+            <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" style="width: 100%; max-width: 950px; max-height: 58vh; height: auto;">
+                  <defs>
+                    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#0B0F19"/>
+                      <stop offset="50%" stop-color="#111827"/>
+                      <stop offset="100%" stop-color="#0F172A"/>
+                    </linearGradient>
+                    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(56, 189, 248, 0.12)"/>
+                      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.6)"/>
+                    </linearGradient>
+                    <linearGradient id="logicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(168, 85, 247, 0.12)"/>
+                      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.6)"/>
+                    </linearGradient>
+                    <linearGradient id="storageGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(16, 185, 129, 0.12)"/>
+                      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.6)"/>
+                    </linearGradient>
+                    <linearGradient id="inferGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(245, 158, 11, 0.15)"/>
+                      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.6)"/>
+                    </linearGradient>
+                    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.08)"/>
+                      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.02)"/>
+                    </linearGradient>
+                    <linearGradient id="gemmaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#4F46E5"/>
+                      <stop offset="50%" stop-color="#7C3AED"/>
+                      <stop offset="100%" stop-color="#EC4899"/>
+                    </linearGradient>
+                    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38BDF8"/>
+                    </marker>
+                    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1 L 10 5 L 0 9 z" fill="#C084FC"/>
+                    </marker>
+                    <marker id="arrow-green" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1 L 10 5 L 0 9 z" fill="#34D399"/>
+                    </marker>
+                    <marker id="arrow-amber" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FBBF24"/>
+                    </marker>
+                    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+                      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+                    </filter>
+                  </defs>
+
+                  <rect width="960" height="450" rx="16" fill="url(#bgGrad)"/>
+                  <rect width="960" height="450" rx="16" fill="none" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1"/>
+
+                  <!-- SECTION 1: PRESENTATION LAYER -->
+                  <g transform="translate(20, 20)">
+                    <rect width="445" height="185" rx="12" fill="url(#clientGrad)" stroke="rgba(56, 189, 248, 0.3)" stroke-width="1.2" filter="url(#cardShadow)"/>
+                    <text x="18" y="26" fill="#38BDF8" font-family="system-ui, sans-serif" font-size="12" font-weight="700">🖥️ PRESENTATION LAYER (Zero-Latency Browser UI)</text>
+                    <g transform="translate(14, 42)">
+                      <rect x="0" y="0" width="130" height="80" rx="8" fill="url(#cardGrad)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1"/>
+                      <text x="10" y="20" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">📖 Knowledge Canvas</text>
+                      <text x="10" y="38" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Chapter Reader</text>
+                      <text x="10" y="52" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Mind Maps (Mermaid)</text>
+                      <text x="10" y="66" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• CS &amp; AI Deep Dives</text>
+
+                      <rect x="142" y="0" width="132" height="80" rx="8" fill="url(#cardGrad)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1"/>
+                      <text x="152" y="20" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🤖 Socratic Co-Pilot</text>
+                      <text x="152" y="38" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Probing Guidance</text>
+                      <text x="152" y="52" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• 🧠 Inner Thinking</text>
+                      <text x="152" y="66" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Village Analogies</text>
+
+                      <rect x="286" y="0" width="130" height="80" rx="8" fill="url(#cardGrad)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1"/>
+                      <text x="296" y="20" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🎯 Active Recall</text>
+                      <text x="296" y="38" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• 3-Question MCQs</text>
+                      <text x="296" y="52" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Subjective Grader</text>
+                      <text x="296" y="66" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Instant Feedback</text>
+
+                      <rect x="0" y="92" width="416" height="38" rx="7" fill="rgba(56, 189, 248, 0.15)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1"/>
+                      <text x="14" y="112" fill="#BAE6FD" font-family="system-ui, sans-serif" font-size="10.5" font-weight="700">🎮 Unified Study Cockpit (app.py)</text>
+                      <text x="14" y="124" fill="#7DD3FC" font-family="system-ui, sans-serif" font-size="9">Global Topic Selector • Dynamic Authoring • Hot-Swap Model Selector • Streaks</text>
+                    </g>
+                  </g>
+
+                  <!-- SECTION 2: COGNITIVE LOGIC LAYER -->
+                  <g transform="translate(495, 20)">
+                    <rect width="445" height="185" rx="12" fill="url(#logicGrad)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1.2" filter="url(#cardShadow)"/>
+                    <text x="18" y="26" fill="#C084FC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">🧠 APPLICATION &amp; COGNITIVE LOGIC LAYER</text>
+                    <g transform="translate(14, 42)">
+                      <rect x="0" y="0" width="130" height="130" rx="8" fill="url(#cardGrad)" stroke="rgba(168, 85, 247, 0.25)" stroke-width="1"/>
+                      <text x="10" y="22" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">📚 Local RAG</text>
+                      <text x="10" y="36" fill="#A855F7" font-family="system-ui, sans-serif" font-size="9" font-weight="600">src/rag_engine.py</text>
+                      <text x="10" y="56" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Recursive Chunker</text>
+                      <text x="10" y="70" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Overlap (100 tok)</text>
+                      <text x="10" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Token Similarity</text>
+                      <text x="10" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Grounded Context</text>
+
+                      <rect x="142" y="0" width="132" height="130" rx="8" fill="url(#cardGrad)" stroke="rgba(168, 85, 247, 0.25)" stroke-width="1"/>
+                      <text x="152" y="22" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🎛️ Gemma Controller</text>
+                      <text x="152" y="36" fill="#A855F7" font-family="system-ui, sans-serif" font-size="9" font-weight="600">src/llm_client.py</text>
+                      <text x="152" y="56" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Gemma-2 Turn Format</text>
+                      <text x="152" y="70" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• &lt;thought&gt; CoT Parser</text>
+                      <text x="152" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• JSON Quiz Validator</text>
+                      <text x="152" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Tok/sec Telemetry</text>
+
+                      <rect x="286" y="0" width="130" height="130" rx="8" fill="url(#cardGrad)" stroke="rgba(168, 85, 247, 0.25)" stroke-width="1"/>
+                      <text x="296" y="22" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🔁 Spaced Repetition</text>
+                      <text x="296" y="36" fill="#A855F7" font-family="system-ui, sans-serif" font-size="9" font-weight="600">src/sm2.py</text>
+                      <text x="296" y="56" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• SuperMemo-2 Algo</text>
+                      <text x="296" y="70" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Ease Factor (EF≥1.3)</text>
+                      <text x="296" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Recall Grade (0-5)</text>
+                      <text x="296" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Next Review Date</text>
+                    </g>
+                  </g>
+
+                  <!-- SECTION 3: OFFLINE PERSISTENCE -->
+                  <g transform="translate(20, 230)">
+                    <rect width="445" height="195" rx="12" fill="url(#storageGrad)" stroke="rgba(16, 185, 129, 0.3)" stroke-width="1.2" filter="url(#cardShadow)"/>
+                    <text x="18" y="26" fill="#34D399" font-family="system-ui, sans-serif" font-size="12" font-weight="700">💾 OFFLINE PERSISTENCE LAYER (Zero-Cloud Disk)</text>
+                    <g transform="translate(14, 42)">
+                      <rect x="0" y="0" width="130" height="135" rx="8" fill="url(#cardGrad)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1"/>
+                      <text x="10" y="22" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">📁 Syllabus Books</text>
+                      <text x="10" y="36" fill="#10B981" font-family="system-ui, sans-serif" font-size="9" font-weight="600">data/books/</text>
+                      <text x="10" y="56" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Raw PDF &amp; TXT Files</text>
+                      <text x="10" y="70" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Science, Bio, Physics</text>
+                      <text x="10" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• College CS &amp; AI</text>
+                      <text x="10" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Custom Saved Topics</text>
+
+                      <rect x="142" y="0" width="132" height="135" rx="8" fill="url(#cardGrad)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1"/>
+                      <text x="152" y="22" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">⚡ Vector Store</text>
+                      <text x="152" y="36" fill="#10B981" font-family="system-ui, sans-serif" font-size="9" font-weight="600">data/vector_db/</text>
+                      <text x="152" y="56" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• offline_index.json</text>
+                      <text x="152" y="70" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• FastEmbed ONNX</text>
+                      <text x="152" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Top-3 Semantics</text>
+                      <text x="152" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• Subject Filters</text>
+
+                      <rect x="286" y="0" width="130" height="135" rx="8" fill="url(#cardGrad)" stroke="rgba(16, 185, 129, 0.25)" stroke-width="1"/>
+                      <text x="296" y="22" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🗄️ Relational DB</text>
+                      <text x="296" y="36" fill="#10B981" font-family="system-ui, sans-serif" font-size="9" font-weight="600">data/edugemma.db</text>
+                      <text x="296" y="56" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• users (profiles)</text>
+                      <text x="296" y="70" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• quiz_results (logs)</text>
+                      <text x="296" y="84" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• topic_mastery (SM2)</text>
+                      <text x="296" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9.5">• study_logs (streaks)</text>
+                    </g>
+                  </g>
+
+                  <!-- SECTION 4: ON-DEVICE INFERENCE -->
+                  <g transform="translate(495, 230)">
+                    <rect width="445" height="195" rx="12" fill="url(#inferGrad)" stroke="rgba(245, 158, 11, 0.3)" stroke-width="1.2" filter="url(#cardShadow)"/>
+                    <text x="18" y="26" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="12" font-weight="700">⚡ ON-DEVICE INFERENCE ENGINE (localhost:11434)</text>
+                    <g transform="translate(14, 42)">
+                      <rect x="0" y="0" width="416" height="42" rx="8" fill="rgba(245, 158, 11, 0.1)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1"/>
+                      <text x="14" y="20" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="11" font-weight="700">🦙 Ollama Local Daemon</text>
+                      <text x="14" y="34" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="9.5">REST API: POST /api/generate • Streaming Tokens • Native Windows Process</text>
+
+                      <rect x="0" y="52" width="416" height="85" rx="8" fill="url(#gemmaGrad)" filter="url(#cardShadow)"/>
+                      <text x="16" y="78" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="800">✨ Google Gemma 2:2B (Q4_K_M)</text>
+                      <text x="16" y="96" fill="rgba(255, 255, 255, 0.9)" font-family="system-ui, sans-serif" font-size="10.5" font-weight="600">100% Offline • ~2.1 GB RAM • 28–35 tokens/sec on Plain CPU • No GPU Needed</text>
+                      <rect x="16" y="108" width="384" height="20" rx="4" fill="rgba(0, 0, 0, 0.25)"/>
+                      <text x="24" y="122" fill="#E0E7FF" font-family="system-ui, sans-serif" font-size="9.5" font-weight="600">⚡ Hot-swappable on-the-fly with Gemma 4:e4b, Gemma 4:12B, or Phi-4 Mini</text>
+                    </g>
+                  </g>
+
+                  <!-- ARROWS -->
+                  <path d="M 465 105 L 495 105" fill="none" stroke="#38BDF8" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                  <path d="M 700 205 L 700 226" fill="none" stroke="#FBBF24" stroke-width="2.2" marker-end="url(#arrow-amber)"/>
+                  <path d="M 530 205 C 510 230, 420 250, 310 270" fill="none" stroke="#C084FC" stroke-width="1.8" stroke-dasharray="4,4" marker-end="url(#arrow-purple)"/>
+                  <path d="M 780 205 C 750 250, 500 280, 436 295" fill="none" stroke="#34D399" stroke-width="1.8" marker-end="url(#arrow-green)"/>
+                  <path d="M 370 230 L 370 209" fill="none" stroke="#34D399" stroke-width="2" marker-end="url(#arrow-green)"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Slide 4: Live Demo Flow -->
+        <section class="slide" data-slide="4">
             <div class="badge badge-green">🎬 Live Demo Script</div>
             <h2>4-Step Live Demo Walkthrough</h2>
             <div class="grid-4">
@@ -384,8 +562,8 @@
             </div>
         </section>
 
-        <!-- Slide 4: Why EduGemma Wins -->
-        <section class="slide" data-slide="4">
+        <!-- Slide 5: Why EduGemma Wins -->
+        <section class="slide" data-slide="5">
             <div class="badge badge-purple">🚀 Impact & Vision</div>
             <h2>Why EduGemma Wins</h2>
             <div class="grid-3" style="margin-bottom: 24px;">
@@ -422,7 +600,7 @@
             <span>&#8592;</span> Prev
         </button>
         <div class="slide-counter">
-            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">4</span>
+            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">5</span>
         </div>
         <button class="btn-nav" id="nextBtn">
             Next <span>&#8594;</span>
@@ -432,6 +610,7 @@
             ⛶
         </button>
     </nav>
+
 
     <script>
         const slides = document.querySelectorAll('.slide');

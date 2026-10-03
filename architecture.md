@@ -6,6 +6,11 @@ An end-to-end, 100% offline educational workstation designed to run entirely on 
 
 ### 📐 High-Level Architecture Diagram
 
+![EduGemma System Architecture](architecture.svg)
+
+<details>
+<summary>Click to view Mermaid Source Code</summary>
+
 ```mermaid
 graph TB
     subgraph Client ["🖥️ Presentation Layer (Zero-Latency Browser UI)"]
@@ -50,6 +55,7 @@ graph TB
     SM2 -->|"Next Review & EF"| DB
     DB -->|"Live Streaks & Mastery Matrix"| UI
 ```
+</details>
 
 ---
 
