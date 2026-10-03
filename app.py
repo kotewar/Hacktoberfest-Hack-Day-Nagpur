@@ -266,7 +266,7 @@ def main():
         with col_mode:
             topic_mode = st.radio(
                 "Topic Source:",
-                options=["📚 Library Textbooks", "✨ Custom Topic / Judge's Prompt"],
+                options=["📚 Library Textbooks", "✨ Custom Topic / Syllabus"],
                 horizontal=True,
                 key="cockpit_topic_mode_radio"
             )
@@ -298,12 +298,12 @@ def main():
                     except Exception:
                         active_content = target_file.read_text(encoding="latin-1", errors="ignore")
 
-        # Mode 2: Custom Topic / Judge's Prompt
+        # Mode 2: Custom Topic / Syllabus
         else:
             col_c1, col_c2, col_c3 = st.columns([1.8, 1.0, 0.9], gap="small")
             with col_c1:
                 custom_topic_input = st.text_input(
-                    "✍️ What do you want to learn? (Enter judge's prompt / custom topic):",
+                    "✍️ What do you want to learn? (Enter custom topic / concept):",
                     value=st.session_state.get("active_custom_topic_name", "Quantum Computing and Qubits"),
                     placeholder="e.g. Merge Sort vs QuickSort, Photosynthesis, B-Tree Indexing...",
                     key="custom_topic_text_box"
@@ -322,7 +322,7 @@ def main():
             active_subject = custom_subject_input
 
             # Optional reference text expander
-            with st.expander("📝 Optional: Paste Reference Notes / Judge's Excerpt (Optional)"):
+            with st.expander("📝 Optional: Paste Reference Notes / Syllabus Excerpt (Optional)"):
                 custom_ref_text = st.text_area(
                     "Leave blank for Gemma to generate from scratch, or paste custom syllabus notes here:",
                     placeholder="Paste reference text here if available...",

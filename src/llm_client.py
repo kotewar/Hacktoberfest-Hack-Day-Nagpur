@@ -255,7 +255,7 @@ def synthesize_custom_topic_notes(
     model: str = DEFAULT_MODEL
 ) -> str:
     """
-    Synthesizes structured textbook-grade notes on-the-fly for any custom topic or judge's prompt.
+    Synthesizes structured textbook-grade notes on-the-fly for any custom topic or syllabus prompt.
     """
     prompt = (
         f"You are an expert textbook author and professor creating comprehensive study notes for a student.\n"
