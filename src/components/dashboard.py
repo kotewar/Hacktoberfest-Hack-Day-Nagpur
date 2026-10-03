@@ -14,43 +14,42 @@ from src.database import (
 def render_styled_table(df: pd.DataFrame) -> None:
     """Renders a clean styled HTML table that works with zero external binary dependencies."""
     table_html = df.to_html(classes="edugemma-table", index=False, escape=False)
-    styled_html = f"""
-    <style>
-        .edugemma-table-wrapper {{
-            overflow-x: auto;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            border-radius: 8px;
-            border: 1px solid #E5E7EB;
-        }}
-        .edugemma-table {{
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-            text-align: left;
-            font-family: inherit;
-        }}
-        .edugemma-table th {{
-            background-color: #F3F4F6;
-            color: #1F2937;
-            font-weight: 600;
-            padding: 10px 14px;
-            border-bottom: 2px solid #E5E7EB;
-        }}
-        .edugemma-table td {{
-            padding: 9px 14px;
-            border-bottom: 1px solid #F3F4F6;
-            color: #374151;
-        }}
-        .edugemma-table tr:hover {{
-            background-color: #F9FAFB;
-        }}
-    </style>
-    <div class="edugemma-table-wrapper">
-        {table_html}
-    </div>
-    """
-    st.markdown(styled_html, unsafe_allow_html=True)
+    styled_html = f"""<style>
+.edugemma-table-wrapper {{
+    overflow-x: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    background: rgba(128, 128, 128, 0.05);
+}}
+.edugemma-table {{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    text-align: left;
+    color: inherit;
+}}
+.edugemma-table th {{
+    background-color: rgba(128, 128, 128, 0.12);
+    color: #60A5FA;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+}}
+.edugemma-table td {{
+    padding: 9px 14px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+    color: inherit;
+}}
+.edugemma-table tr:hover {{
+    background-color: rgba(128, 128, 128, 0.1);
+}}
+</style>
+<div class="edugemma-table-wrapper">
+{table_html}
+</div>"""
+    st.html(styled_html)
 
 def render_activity_visual(daily_logs: List[Dict[str, Any]]) -> None:
     """Renders a visual 14-day study activity timeline using pure SVG and CSS bars."""

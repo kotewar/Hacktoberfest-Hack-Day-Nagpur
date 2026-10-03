@@ -132,44 +132,42 @@ st.markdown("""
 def render_styled_table(df: pd.DataFrame) -> None:
     """Renders a clean styled HTML table that works with zero external binary dependencies."""
     table_html = df.to_html(classes="cockpit-table", index=False, escape=False)
-    styled_html = f"""
-    <style>
-        .cockpit-table-wrapper {{
-            overflow-x: auto;
-            margin-top: 6px;
-            margin-bottom: 6px;
-            border-radius: 8px;
-            border: 1px solid rgba(128, 128, 128, 0.25);
-            background: rgba(128, 128, 128, 0.05);
-        }}
-        .cockpit-table {{
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.88rem;
-            text-align: left;
-            color: inherit;
-        }}
-        .cockpit-table th {{
-            background-color: rgba(128, 128, 128, 0.12);
-            color: #60A5FA;
-            font-weight: 600;
-            padding: 9px 12px;
-            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-        }}
-        .cockpit-table td {{
-            padding: 8px 12px;
-            border-bottom: 1px solid rgba(128, 128, 128, 0.08);
-            color: inherit;
-        }}
-        .cockpit-table tr:hover {{
-            background-color: rgba(128, 128, 128, 0.1);
-        }}
-    </style>
-    <div class="cockpit-table-wrapper">
-        {table_html}
-    </div>
-    """
-    st.markdown(styled_html, unsafe_allow_html=True)
+    styled_html = f"""<style>
+.cockpit-table-wrapper {{
+    overflow-x: auto;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+    background: rgba(128, 128, 128, 0.05);
+}}
+.cockpit-table {{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    text-align: left;
+    color: inherit;
+}}
+.cockpit-table th {{
+    background-color: rgba(128, 128, 128, 0.12);
+    color: #60A5FA;
+    font-weight: 600;
+    padding: 9px 12px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}}
+.cockpit-table td {{
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+    color: inherit;
+}}
+.cockpit-table tr:hover {{
+    background-color: rgba(128, 128, 128, 0.1);
+}}
+</style>
+<div class="cockpit-table-wrapper">
+{table_html}
+</div>"""
+    st.html(styled_html)
 
 def render_diagram_text(raw_text: str):
     """Renders text extracting any embedded Mermaid diagrams into native visual blocks."""
