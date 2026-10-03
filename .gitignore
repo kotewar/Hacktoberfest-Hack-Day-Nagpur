@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# SQLite databases (local student progress)
+*.db
+*.sqlite3
+data/*.db
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Streamlit local state
+.streamlit/
+
+# OS generated files
+.DS_Store
+Thumbs.db

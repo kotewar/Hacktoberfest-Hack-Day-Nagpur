@@ -1,0 +1,50 @@
+Chapter 1: Chemical Reactions and Equations
+
+1.1 Chemical Reactions:
+Consider the following situations of daily life and think what happens when:
+- Milk is left at room temperature during summers.
+- An iron tawa/pan/nail is left exposed to humid atmosphere.
+- Grapes get fermented.
+- Food is cooked.
+- Food gets digested in our body.
+- We respire.
+
+In all the above situations, the nature and identity of the initial substance have somewhat changed. Whenever a chemical change occurs, we say that a chemical reaction has taken place.
+A chemical reaction can be determined by:
+1. Change in state
+2. Change in colour
+3. Evolution of a gas
+4. Change in temperature
+
+1.2 Chemical Equations:
+When magnesium ribbon is burnt in oxygen, it gets converted to magnesium oxide. This description of a chemical reaction in a sentence form is quite long. It can be written in a shorter form as a word-equation:
+Magnesium + Oxygen -> Magnesium oxide
+(Reactants) -> (Product)
+
+A balanced chemical equation has an equal number of atoms of each element on both sides of the equation. According to the Law of Conservation of Mass, mass can neither be created nor destroyed in a chemical reaction.
+Balanced reaction: 2Mg + O2 -> 2MgO
+
+1.3 Types of Chemical Reactions:
+1. Combination Reaction: A reaction in which a single product is formed from two or more reactants.
+Example: Quicklime (calcium oxide, CaO) reacts vigorously with water to produce slaked lime (calcium hydroxide, Ca(OH)2), releasing a large amount of heat.
+CaO(s) + H2O(l) -> Ca(OH)2(aq) + Heat
+
+2. Decomposition Reaction: A reaction in which a single substance decomposes to give two or more simpler substances when heat, light, or electricity is applied.
+Thermal decomposition of Ferrous Sulphate:
+2FeSO4(s) --(Heat)--> Fe2O3(s) + SO2(g) + SO3(g)
+
+3. Displacement Reaction: A reaction in which a more reactive element displaces a less reactive element from its compound.
+Fe(s) + CuSO4(aq) -> FeSO4(aq) + Cu(s)
+Here, iron displaces copper from copper sulphate solution, changing blue colour to light green.
+
+4. Double Displacement Reaction: Reactions in which there is an exchange of ions between the reactants.
+Na2SO4(aq) + BaCl2(aq) -> BaSO4(s) (white precipitate) + 2NaCl(aq)
+
+5. Oxidation and Reduction (Redox):
+If a substance gains oxygen or loses hydrogen during a reaction, it is oxidized.
+If a substance loses oxygen or gains hydrogen, it is reduced.
+In the reaction: CuO + H2 -> Cu + H2O, copper oxide is reduced to copper, and hydrogen is oxidized to water.
+
+1.4 Corrosion and Rancidity:
+Corrosion occurs when a metal is attacked by substances around it such as moisture and acids (e.g. rusting of iron).
+Rancidity occurs when fats and oils are oxidized, changing their smell and taste. Antioxidants and nitrogen flushing prevent rancidity.

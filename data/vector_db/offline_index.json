@@ -1,0 +1,354 @@
+[
+  {
+    "id": "Biology - Life Processes and Nutrition_chunk_0",
+    "text": "Chapter 6: Life Processes and Nutrition\n\n6.1 What are Life Processes?\nThe maintenance processes which perform the job of repair and maintenance of living organisms to prevent damage and breakdown are called life processes. Since energy is needed for these processes, life depends on carbon-based molecules and respiration.\n\n6.2 Autotrophic Nutrition (Photosynthesis):\nAutotrophs fulfill their energy requirements by photosynthesis:\nCarbon and energy requirements of the autotrophic organism are fulfilled by taking in substances from outside and converting them into stored forms of energy.\nPhotosynthesis Equation:\n6CO2 + 12H2O --(Chlorophyll, Sunlight)--> C6H12O6 (Glucose) + 6O2 + 6H2O",
+    "metadata": {
+      "source": "Biology - Life Processes and Nutrition.txt",
+      "subject": "Biology",
+      "chapter": "Life Processes and Nutrition",
+      "chunk_index": 0,
+      "total_chunks": 4
+    }
+  },
+  {
+    "id": "Biology - Life Processes and Nutrition_chunk_1",
+    "text": "y.\nPhotosynthesis Equation:\n6CO2 + 12H2O --(Chlorophyll, Sunlight)--> C6H12O6 (Glucose) + 6O2 + 6H2O ... Key events in photosynthesis:\n1. Absorption of light energy by chlorophyll pigments.\n2. Conversion of light energy to chemical energy and splitting of water molecules into hydrogen and oxygen (photolysis).\n3. Reduction of carbon dioxide to carbohydrates.\nStomata are tiny pores present on the surface of leaves through which massive amounts of gaseous exchange take place. Opening and closing of stomatal pores is controlled by guard cells swelling with water.",
+    "metadata": {
+      "source": "Biology - Life Processes and Nutrition.txt",
+      "subject": "Biology",
+      "chapter": "Life Processes and Nutrition",
+      "chunk_index": 1,
+      "total_chunks": 4
+    }
+  },
+  {
+    "id": "Biology - Life Processes and Nutrition_chunk_2",
+    "text": " take place. Opening and closing of stomatal pores is controlled by guard cells swelling with water. ... 6.3 Heterotrophic Nutrition & Human Digestion:\nHeterotrophs depend directly or indirectly on autotrophs.\nHuman Alimentary Canal:\n- Mouth: Salivary amylase breaks starch down into maltose sugars.\n- Stomach: Gastric glands release hydrochloric acid (HCl), pepsin (enzyme digesting protein in acidic medium), and mucus (protects stomach lining).\n- Small Intestine: Longest part of alimentary canal. Receives bile juice from liver (emulsifies fats, makes medium alkaline) and pancreatic juice containing trypsin (proteins) and lipase (fats).\n- Absorption: Villi (finger-like projections in inner wall of intestine) increase surface area for nutrient absorption into bloodstream.",
+    "metadata": {
+      "source": "Biology - Life Processes and Nutrition.txt",
+      "subject": "Biology",
+      "chapter": "Life Processes and Nutrition",
+      "chunk_index": 2,
+      "total_chunks": 4
+    }
+  },
+  {
+    "id": "Biology - Life Processes and Nutrition_chunk_3",
+    "text": "jections in inner wall of intestine) increase surface area for nutrient absorption into bloodstream. ... 6.4 Respiration:\nGlucose (6-carbon molecule) breaks down into pyruvate (3-carbon molecule) in the cytoplasm (Glycolysis).\nPaths of Pyruvate breakdown:\n1. Aerobic respiration (Mitochondria with O2): Yields CO2 + H2O + large energy (~36-38 ATP).\n2. Anaerobic respiration in Yeast (Fermentation without O2): Yields Ethanol + CO2 + Energy (2 ATP).\n3. Lack of oxygen in human muscle cells during vigorous exercise: Yields Lactic acid + Energy, causing muscle cramps.",
+    "metadata": {
+      "source": "Biology - Life Processes and Nutrition.txt",
+      "subject": "Biology",
+      "chapter": "Life Processes and Nutrition",
+      "chunk_index": 3,
+      "total_chunks": 4
+    }
+  },
+  {
+    "id": "Physics - Motion in a Straight Line_chunk_0",
+    "text": "Chapter 2: Motion in a Straight Line\n\n2.1 Kinematic Basics:\nMotion is change in position of an object with time. In order to specify position, we need to use a reference point and a set of axes.\n- Path Length (Distance): Total distance traversed by an object. It is a scalar quantity and is always non-negative.\n- Displacement: Change in position vector of the object (Final Position - Initial Position). It is a vector quantity and can be positive, zero, or negative.",
+    "metadata": {
+      "source": "Physics - Motion in a Straight Line.txt",
+      "subject": "Physics",
+      "chapter": "Motion in a Straight Line",
+      "chunk_index": 0,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Physics - Motion in a Straight Line_chunk_1",
+    "text": "(Final Position - Initial Position). It is a vector quantity and can be positive, zero, or negative. ... 2.2 Speed and Velocity:\n- Average Speed: Total path length divided by the total time interval taken.\nAverage Speed = Total Distance / Total Time (SI unit: m/s).\n- Average Velocity: Displacement divided by the time interval.\nAverage Velocity = Delta x / Delta t.\n- Instantaneous Velocity: The velocity at an instant is defined as the limit of the average velocity as the time interval Delta t becomes infinitesimally small:\nv = lim (Delta t -> 0) [Delta x / Delta t] = dx/dt.",
+    "metadata": {
+      "source": "Physics - Motion in a Straight Line.txt",
+      "subject": "Physics",
+      "chapter": "Motion in a Straight Line",
+      "chunk_index": 1,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Physics - Motion in a Straight Line_chunk_2",
+    "text": " interval Delta t becomes infinitesimally small:\nv = lim (Delta t -> 0) [Delta x / Delta t] = dx/dt. ... 2.3 Acceleration:\nAcceleration is the rate of change of velocity with time.\nAverage acceleration = (v2 - v1) / (t2 - t1) = Delta v / Delta t.\nInstantaneous acceleration a = dv/dt = d^2x/dt^2 (SI unit: m/s^2).\nIf velocity decreases with time, acceleration is negative (retardation or deceleration).",
+    "metadata": {
+      "source": "Physics - Motion in a Straight Line.txt",
+      "subject": "Physics",
+      "chapter": "Motion in a Straight Line",
+      "chunk_index": 2,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Physics - Motion in a Straight Line_chunk_3",
+    "text": "it: m/s^2).\nIf velocity decreases with time, acceleration is negative (retardation or deceleration). ... 2.4 Kinematic Equations for Uniformly Accelerated Motion:\nFor an object moving with constant acceleration 'a', initial velocity 'u', final velocity 'v', time 't', and displacement 's':\n1. First Equation of Motion:\n   v = u + a * t\n2. Second Equation of Motion:\n   s = u * t + (1/2) * a * t^2\n3. Third Equation of Motion:\n   v^2 = u^2 + 2 * a * s\n4. Displacement in n-th second:\n   s_n = u + (a/2) * (2n - 1)",
+    "metadata": {
+      "source": "Physics - Motion in a Straight Line.txt",
+      "subject": "Physics",
+      "chapter": "Motion in a Straight Line",
+      "chunk_index": 3,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Physics - Motion in a Straight Line_chunk_4",
+    "text": "on of Motion:\n   v^2 = u^2 + 2 * a * s\n4. Displacement in n-th second:\n   s_n = u + (a/2) * (2n - 1) ... 2.5 Free Fall under Gravity:\nAn object released near the surface of the earth accelerates downwards under the influence of gravity (g = 9.8 m/s^2 or ~10 m/s^2).\nNeglecting air resistance:\n- v = u - g * t\n- y = u * t - (1/2) * g * t^2\n- v^2 = u^2 - 2 * g * y\nMaximum height reached: H_max = u^2 / (2 * g)\nTime of flight: T = 2 * u / g",
+    "metadata": {
+      "source": "Physics - Motion in a Straight Line.txt",
+      "subject": "Physics",
+      "chapter": "Motion in a Straight Line",
+      "chunk_index": 4,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Science - Chemical Reactions and Equations_chunk_0",
+    "text": "Chapter 1: Chemical Reactions and Equations\n\n1.1 Chemical Reactions:\nConsider the following situations of daily life and think what happens when:\n- Milk is left at room temperature during summers.\n- An iron tawa/pan/nail is left exposed to humid atmosphere.\n- Grapes get fermented.\n- Food is cooked.\n- Food gets digested in our body.\n- We respire.\n\nIn all the above situations, the nature and identity of the initial substance have somewhat changed. Whenever a chemical change occurs, we say that a chemical reaction has taken place.\nA chemical reaction can be determined by:\n1. Change in state\n2. Change in colour\n3. Evolution of a gas\n4. Change in temperature",
+    "metadata": {
+      "source": "Science - Chemical Reactions and Equations.txt",
+      "subject": "Science",
+      "chapter": "Chemical Reactions and Equations",
+      "chunk_index": 0,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Science - Chemical Reactions and Equations_chunk_1",
+    "text": "determined by:\n1. Change in state\n2. Change in colour\n3. Evolution of a gas\n4. Change in temperature ... 1.2 Chemical Equations:\nWhen magnesium ribbon is burnt in oxygen, it gets converted to magnesium oxide. This description of a chemical reaction in a sentence form is quite long. It can be written in a shorter form as a word-equation:\nMagnesium + Oxygen -> Magnesium oxide\n(Reactants) -> (Product)\n\nA balanced chemical equation has an equal number of atoms of each element on both sides of the equation. According to the Law of Conservation of Mass, mass can neither be created nor destroyed in a chemical reaction.\nBalanced reaction: 2Mg + O2 -> 2MgO",
+    "metadata": {
+      "source": "Science - Chemical Reactions and Equations.txt",
+      "subject": "Science",
+      "chapter": "Chemical Reactions and Equations",
+      "chunk_index": 1,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Science - Chemical Reactions and Equations_chunk_2",
+    "text": "ass can neither be created nor destroyed in a chemical reaction.\nBalanced reaction: 2Mg + O2 -> 2MgO ... 1.3 Types of Chemical Reactions:\n1. Combination Reaction: A reaction in which a single product is formed from two or more reactants.\nExample: Quicklime (calcium oxide, CaO) reacts vigorously with water to produce slaked lime (calcium hydroxide, Ca(OH)2), releasing a large amount of heat.\nCaO(s) + H2O(l) -> Ca(OH)2(aq) + Heat\n\n2. Decomposition Reaction: A reaction in which a single substance decomposes to give two or more simpler substances when heat, light, or electricity is applied.\nThermal decomposition of Ferrous Sulphate:\n2FeSO4(s) --(Heat)--> Fe2O3(s) + SO2(g) + SO3(g)",
+    "metadata": {
+      "source": "Science - Chemical Reactions and Equations.txt",
+      "subject": "Science",
+      "chapter": "Chemical Reactions and Equations",
+      "chunk_index": 2,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Science - Chemical Reactions and Equations_chunk_3",
+    "text": "applied.\nThermal decomposition of Ferrous Sulphate:\n2FeSO4(s) --(Heat)--> Fe2O3(s) + SO2(g) + SO3(g) ... 3. Displacement Reaction: A reaction in which a more reactive element displaces a less reactive element from its compound.\nFe(s) + CuSO4(aq) -> FeSO4(aq) + Cu(s)\nHere, iron displaces copper from copper sulphate solution, changing blue colour to light green.\n\n4. Double Displacement Reaction: Reactions in which there is an exchange of ions between the reactants.\nNa2SO4(aq) + BaCl2(aq) -> BaSO4(s) (white precipitate) + 2NaCl(aq)",
+    "metadata": {
+      "source": "Science - Chemical Reactions and Equations.txt",
+      "subject": "Science",
+      "chapter": "Chemical Reactions and Equations",
+      "chunk_index": 3,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Science - Chemical Reactions and Equations_chunk_4",
+    "text": "ge of ions between the reactants.\nNa2SO4(aq) + BaCl2(aq) -> BaSO4(s) (white precipitate) + 2NaCl(aq) ... 5. Oxidation and Reduction (Redox):\nIf a substance gains oxygen or loses hydrogen during a reaction, it is oxidized.\nIf a substance loses oxygen or gains hydrogen, it is reduced.\nIn the reaction: CuO + H2 -> Cu + H2O, copper oxide is reduced to copper, and hydrogen is oxidized to water.\n\n1.4 Corrosion and Rancidity:\nCorrosion occurs when a metal is attacked by substances around it such as moisture and acids (e.g. rusting of iron).\nRancidity occurs when fats and oils are oxidized, changing their smell and taste. Antioxidants and nitrogen flushing prevent rancidity.",
+    "metadata": {
+      "source": "Science - Chemical Reactions and Equations.txt",
+      "subject": "Science",
+      "chapter": "Chemical Reactions and Equations",
+      "chunk_index": 4,
+      "total_chunks": 5
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_0",
+    "text": "Chapter 1: Neural Networks and Deep Learning Foundations\n\n1.1 Biological to Artificial Neurons:\nAn Artificial Neuron (Perceptron) receives input features x_1, x_2, ..., x_n, multiplies each by a learned weight w_i, adds a scalar bias b, and applies a non-linear activation function sigma:\nz = sum(w_i * x_i) + b = W^T * X + b\ny_hat = sigma(z)",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 0,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_1",
+    "text": "pplies a non-linear activation function sigma:\nz = sum(w_i * x_i) + b = W^T * X + b\ny_hat = sigma(z) ... Common Activation Functions:\n- Sigmoid: sigma(z) = 1 / (1 + e^(-z)). Maps values to (0, 1). Susceptible to vanishing gradient for large |z|.\n- ReLU (Rectified Linear Unit): f(z) = max(0, z). Solves vanishing gradient for positive values; computationally efficient.\n- Softmax: Used in multi-class classification output layer to convert raw logits into a probability distribution:\n  P(y = c | x) = e^(z_c) / sum_{j=1}^C e^(z_j)",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 1,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_2",
+    "text": "o convert raw logits into a probability distribution:\n  P(y = c | x) = e^(z_c) / sum_{j=1}^C e^(z_j) ... 1.2 Loss Functions and Backpropagation:\nThe difference between model prediction y_hat and true label y is quantified by a Loss Function:\n- Mean Squared Error (Regression): L = (1/2) * (y - y_hat)^2\n- Binary Cross-Entropy (Binary Classification): L = - [y * log(y_hat) + (1 - y) * log(1 - y_hat)]\n- Categorical Cross-Entropy (Multi-class): L = - sum_{c=1}^C y_c * log(y_hat_c)",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 2,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_3",
+    "text": "y) * log(1 - y_hat)]\n- Categorical Cross-Entropy (Multi-class): L = - sum_{c=1}^C y_c * log(y_hat_c) ... Backpropagation uses the Calculus Chain Rule to compute partial derivatives of the loss with respect to all weights and biases:\ndL/dw_ij = (dL/dy_hat) * (dy_hat/dz) * (dz/dw_ij)\nWeights are updated iteratively via Gradient Descent with learning rate alpha:\nw_new = w_old - alpha * (dL/dw)\nModern optimizers like Adam combine momentum with root mean square adaptive learning rates.\n\n---\n\nChapter 2: The Transformer Architecture and Large Language Models",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 3,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_4",
+    "text": "are adaptive learning rates.\n\n---\n\nChapter 2: The Transformer Architecture and Large Language Models ... 2.1 The Need for Attention (Limitations of RNNs):\nTraditional sequence models (RNNs, LSTMs) process tokens sequentially step-by-step:\nh_t = tanh(W_hh * h_{t-1} + W_xh * x_t)\nDrawbacks:\n1. Sequential bottleneck prevents parallel GPU computation.\n2. Long-range dependency decay: information from early tokens is forgotten over long sequences due to repeated matrix multiplications.",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 4,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_5",
+    "text": "formation from early tokens is forgotten over long sequences due to repeated matrix multiplications. ... 2.2 The Self-Attention Mechanism:\nThe Transformer (\"Attention Is All You Need\", Vaswani et al., 2017) relies entirely on self-attention, allowing every token in an input sequence to attend to every other token simultaneously.\nFor each input embedding, we compute three vectors via learned linear projections:\n1. Query (Q = X * W_Q): \"What am I looking for?\"\n2. Key (K = X * W_K): \"What information do I offer?\"\n3. Value (V = X * W_V): \"What is my actual content?\"",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 5,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_6",
+    "text": "y (K = X * W_K): \"What information do I offer?\"\n3. Value (V = X * W_V): \"What is my actual content?\" ... Scaled Dot-Product Attention Formula:\nAttention(Q, K, V) = softmax( (Q * K^T) / sqrt(d_k) ) * V\n- Q * K^T calculates similarity scores between all token pairs.\n- Division by sqrt(d_k) scales values to prevent softmax saturation and vanishing gradients in high dimensions.\n- Softmax normalizes dot products into attention weights (probabilities summing to 1.0).\n- Multiplying by V yields a contextualized representation for each token.",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 6,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_7",
+    "text": "abilities summing to 1.0).\n- Multiplying by V yields a contextualized representation for each token. ... 2.3 Multi-Head Attention:\nInstead of computing attention once, Multi-Head Attention projects Q, K, and V into h different representation subspaces:\nMultiHead(Q, K, V) = Concat(head_1, ..., head_h) * W_O\nwhere head_i = Attention(Q * W_Q_i, K * W_K_i, V * W_V_i).\nThis enables the network to simultaneously focus on syntax, semantics, and distant coreferences.",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 7,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_8",
+    "text": "i).\nThis enables the network to simultaneously focus on syntax, semantics, and distant coreferences. ... 2.4 Complete Transformer Block Components:\nEach layer consists of:\n1. Multi-Head Self-Attention\n2. Residual Connection & Layer Normalization: x_norm = LayerNorm(x + Sublayer(x))\n3. Position-wise Feed-Forward Network: FFN(x) = max(0, x * W_1 + b_1) * W_2 + b_2\n4. Positional Encoding: Since attention is permutation-invariant, sinusoidal or rotary positional embeddings (RoPE) inject sequence order.",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 8,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Artificial Intelligence - Neural Networks and Transformers_chunk_9",
+    "text": "n is permutation-invariant, sinusoidal or rotary positional embeddings (RoPE) inject sequence order. ... 2.5 How LLMs (e.g., Gemma 2) Generate Text:\nAutoregressive decoding generates text one token at a time:\nP(w_1, w_2, ..., w_T) = prod_{t=1}^T P(w_t | w_1, ..., w_{t-1})\n- Temperature (T): Controls randomness. Dividing logits by T before softmax. Low T (0.2) = deterministic, high T (0.8) = creative.\n- Top-p (Nucleus) Sampling: Restricts choices to the smallest set of tokens whose cumulative probability exceeds p.\n- Quantization: 4-bit quantization (Q4_K_M) reduces 16-bit float weights into 4-bit integers, enabling Gemma 2:2B to run smoothly on standard CPUs under 2 GB RAM.",
+    "metadata": {
+      "source": "Artificial Intelligence - Neural Networks and Transformers.txt",
+      "subject": "Artificial Intelligence",
+      "chapter": "Neural Networks and Transformers",
+      "chunk_index": 9,
+      "total_chunks": 10
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_0",
+    "text": "Chapter 1: Algorithm Analysis and Core Data Structures\n\n1.1 Asymptotic Analysis and Big-O Notation:\nBig-O notation quantifies the worst-case upper bound of runtime or space consumption as input size n approaches infinity:\n- O(1): Constant Time (Hash Table lookup, Array indexing).\n- O(log n): Logarithmic Time (Binary Search on sorted array).\n- O(n): Linear Time (Linear scan through array/linked list).\n- O(n log n): Linearithmic Time (Optimal comparison sorts: Merge Sort, Heap Sort).\n- O(n^2): Quadratic Time (Nested loops, Bubble Sort, Insertion Sort).\n- O(2^n): Exponential Time (Recursive Fibonacci, subset generation).",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 0,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_1",
+    "text": ", Bubble Sort, Insertion Sort).\n- O(2^n): Exponential Time (Recursive Fibonacci, subset generation). ... 1.2 Stacks, Queues, and Linked Lists:\n- Linked List: Nodes composed of {data, next_pointer}. Allows O(1) insertion/deletion at head, but O(n) sequential random access.\n- Stack: Last-In, First-Out (LIFO). Push, Pop, and Peek in O(1). Applications: Function call stack, parenthesis matching, undo history.\n- Queue: First-In, First-Out (FIFO). Enqueue at rear, Dequeue at front in O(1). Applications: BFS traversal, CPU process scheduling, print buffers.\n\n---\n\nChapter 2: Trees, Graphs, and Advanced Algorithms",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 1,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_2",
+    "text": "rsal, CPU process scheduling, print buffers.\n\n---\n\nChapter 2: Trees, Graphs, and Advanced Algorithms ... 2.1 Binary Search Trees (BST):\nA rooted binary tree where for every node:\n- All values in the left subtree are strictly LESS than the node's key.\n- All values in the right subtree are strictly GREATER than the node's key.\nSearch, Insert, and Delete operate in O(h) time, where h is tree height.\n- Best/Average Case (Balanced BST): h = O(log n).\n- Worst Case (Skewed BST like a sorted linked list): h = O(n).\nSelf-balancing trees (AVL trees, Red-Black trees) ensure h = O(log n) via rotations.\nTraversals:\n- Inorder (Left -> Root -> Right): Produces sorted ascending order.\n- Preorder (Root -> Left -> Right): Useful for tree cloning and serialization.",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 2,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_3",
+    "text": "rted ascending order.\n- Preorder (Root -> Left -> Right): Useful for tree cloning and serialization. ... - Postorder (Left -> Right -> Root): Useful for tree deletion and bottom-up metric calculation.",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 3,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_4",
+    "text": " ... - Postorder (Left -> Right -> Root): Useful for tree deletion and bottom-up metric calculation. ... 2.2 Graph Representation and Traversals:\nA graph G = (V, E) consists of vertices V and edges E.\n- Adjacency Matrix: V x V boolean matrix. Space O(V^2). Edge check in O(1).\n- Adjacency List: Array of linked lists/vectors. Space O(V + E). Preferred for sparse graphs.\nGraph Search:\n1. Breadth-First Search (BFS):\n   - Uses a FIFO Queue and a visited set.\n   - Visits nodes level-by-level in radial layers.\n   - Computes the shortest path on unweighted graphs in O(V + E) time.\n2. Depth-First Search (DFS):\n   - Uses recursion or a LIFO Stack.\n   - Explores each branch as deeply as possible before backtracking.\n   - Applications: Cycle detection, topological sorting, connected components.",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 4,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_5",
+    "text": " before backtracking.\n   - Applications: Cycle detection, topological sorting, connected components. ... 3. Dijkstra's Shortest Path Algorithm:\n   - Finds minimum-weight paths from single source on non-negative weighted graphs.\n   - Uses a Min-Priority Queue (Binary Heap). Runtime: O((V + E) log V).",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 5,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_6",
+    "text": "n-negative weighted graphs.\n   - Uses a Min-Priority Queue (Binary Heap). Runtime: O((V + E) log V). ... 2.3 Dynamic Programming (DP):\nDP solves complex problems by breaking them down into simpler subproblems, caching results to avoid redundant recomputations.\nTwo Key Properties:\n1. Optimal Substructure: Optimal solution to problem contains optimal solutions to subproblems.\n2. Overlapping Subproblems: Same subproblems are resolved multiple times.\nApproaches:\n- Top-Down with Memoization: Recursive function with a hash table or cache array.\n- Bottom-Up with Tabulation: Iterative table filling using loops from base cases upward.\nClassic Problems:\n- 0/1 Knapsack Problem: dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w - weight[i]]). Runtime: O(n * W).",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 6,
+      "total_chunks": 8
+    }
+  },
+  {
+    "id": "Computer Science - Data Structures and Algorithms_chunk_7",
+    "text": " Knapsack Problem: dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w - weight[i]]). Runtime: O(n * W). ... - Longest Common Subsequence (LCS): dp[i][j] = dp[i-1][j-1] + 1 if s1[i] == s2[j] else max(dp[i-1][j], dp[i][j-1]). Runtime: O(m * n).",
+    "metadata": {
+      "source": "Computer Science - Data Structures and Algorithms.txt",
+      "subject": "Computer Science",
+      "chapter": "Data Structures and Algorithms",
+      "chunk_index": 7,
+      "total_chunks": 8
+    }
+  }
+]

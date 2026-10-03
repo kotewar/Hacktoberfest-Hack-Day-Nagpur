@@ -1,0 +1,61 @@
+Chapter 1: Algorithm Analysis and Core Data Structures
+
+1.1 Asymptotic Analysis and Big-O Notation:
+Big-O notation quantifies the worst-case upper bound of runtime or space consumption as input size n approaches infinity:
+- O(1): Constant Time (Hash Table lookup, Array indexing).
+- O(log n): Logarithmic Time (Binary Search on sorted array).
+- O(n): Linear Time (Linear scan through array/linked list).
+- O(n log n): Linearithmic Time (Optimal comparison sorts: Merge Sort, Heap Sort).
+- O(n^2): Quadratic Time (Nested loops, Bubble Sort, Insertion Sort).
+- O(2^n): Exponential Time (Recursive Fibonacci, subset generation).
+
+1.2 Stacks, Queues, and Linked Lists:
+- Linked List: Nodes composed of {data, next_pointer}. Allows O(1) insertion/deletion at head, but O(n) sequential random access.
+- Stack: Last-In, First-Out (LIFO). Push, Pop, and Peek in O(1). Applications: Function call stack, parenthesis matching, undo history.
+- Queue: First-In, First-Out (FIFO). Enqueue at rear, Dequeue at front in O(1). Applications: BFS traversal, CPU process scheduling, print buffers.
+
+---
+
+Chapter 2: Trees, Graphs, and Advanced Algorithms
+
+2.1 Binary Search Trees (BST):
+A rooted binary tree where for every node:
+- All values in the left subtree are strictly LESS than the node's key.
+- All values in the right subtree are strictly GREATER than the node's key.
+Search, Insert, and Delete operate in O(h) time, where h is tree height.
+- Best/Average Case (Balanced BST): h = O(log n).
+- Worst Case (Skewed BST like a sorted linked list): h = O(n).
+Self-balancing trees (AVL trees, Red-Black trees) ensure h = O(log n) via rotations.
+Traversals:
+- Inorder (Left -> Root -> Right): Produces sorted ascending order.
+- Preorder (Root -> Left -> Right): Useful for tree cloning and serialization.
+- Postorder (Left -> Right -> Root): Useful for tree deletion and bottom-up metric calculation.
+
+2.2 Graph Representation and Traversals:
+A graph G = (V, E) consists of vertices V and edges E.
+- Adjacency Matrix: V x V boolean matrix. Space O(V^2). Edge check in O(1).
+- Adjacency List: Array of linked lists/vectors. Space O(V + E). Preferred for sparse graphs.
+Graph Search:
+1. Breadth-First Search (BFS):
+   - Uses a FIFO Queue and a visited set.
+   - Visits nodes level-by-level in radial layers.
+   - Computes the shortest path on unweighted graphs in O(V + E) time.
+2. Depth-First Search (DFS):
+   - Uses recursion or a LIFO Stack.
+   - Explores each branch as deeply as possible before backtracking.
+   - Applications: Cycle detection, topological sorting, connected components.
+3. Dijkstra's Shortest Path Algorithm:
+   - Finds minimum-weight paths from single source on non-negative weighted graphs.
+   - Uses a Min-Priority Queue (Binary Heap). Runtime: O((V + E) log V).
+
+2.3 Dynamic Programming (DP):
+DP solves complex problems by breaking them down into simpler subproblems, caching results to avoid redundant recomputations.
+Two Key Properties:
+1. Optimal Substructure: Optimal solution to problem contains optimal solutions to subproblems.
+2. Overlapping Subproblems: Same subproblems are resolved multiple times.
+Approaches:
+- Top-Down with Memoization: Recursive function with a hash table or cache array.
+- Bottom-Up with Tabulation: Iterative table filling using loops from base cases upward.
+Classic Problems:
+- 0/1 Knapsack Problem: dp[i][w] = max(dp[i-1][w], value[i] + dp[i-1][w - weight[i]]). Runtime: O(n * W).
+- Longest Common Subsequence (LCS): dp[i][j] = dp[i-1][j-1] + 1 if s1[i] == s2[j] else max(dp[i-1][j], dp[i][j-1]). Runtime: O(m * n).

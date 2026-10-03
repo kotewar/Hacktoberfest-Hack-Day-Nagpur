@@ -1,0 +1,40 @@
+Chapter 2: Motion in a Straight Line
+
+2.1 Kinematic Basics:
+Motion is change in position of an object with time. In order to specify position, we need to use a reference point and a set of axes.
+- Path Length (Distance): Total distance traversed by an object. It is a scalar quantity and is always non-negative.
+- Displacement: Change in position vector of the object (Final Position - Initial Position). It is a vector quantity and can be positive, zero, or negative.
+
+2.2 Speed and Velocity:
+- Average Speed: Total path length divided by the total time interval taken.
+Average Speed = Total Distance / Total Time (SI unit: m/s).
+- Average Velocity: Displacement divided by the time interval.
+Average Velocity = Delta x / Delta t.
+- Instantaneous Velocity: The velocity at an instant is defined as the limit of the average velocity as the time interval Delta t becomes infinitesimally small:
+v = lim (Delta t -> 0) [Delta x / Delta t] = dx/dt.
+
+2.3 Acceleration:
+Acceleration is the rate of change of velocity with time.
+Average acceleration = (v2 - v1) / (t2 - t1) = Delta v / Delta t.
+Instantaneous acceleration a = dv/dt = d^2x/dt^2 (SI unit: m/s^2).
+If velocity decreases with time, acceleration is negative (retardation or deceleration).
+
+2.4 Kinematic Equations for Uniformly Accelerated Motion:
+For an object moving with constant acceleration 'a', initial velocity 'u', final velocity 'v', time 't', and displacement 's':
+1. First Equation of Motion:
+   v = u + a * t
+2. Second Equation of Motion:
+   s = u * t + (1/2) * a * t^2
+3. Third Equation of Motion:
+   v^2 = u^2 + 2 * a * s
+4. Displacement in n-th second:
+   s_n = u + (a/2) * (2n - 1)
+
+2.5 Free Fall under Gravity:
+An object released near the surface of the earth accelerates downwards under the influence of gravity (g = 9.8 m/s^2 or ~10 m/s^2).
+Neglecting air resistance:
+- v = u - g * t
+- y = u * t - (1/2) * g * t^2
+- v^2 = u^2 - 2 * g * y
+Maximum height reached: H_max = u^2 / (2 * g)
+Time of flight: T = 2 * u / g

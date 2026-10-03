@@ -1,0 +1,31 @@
+Chapter 6: Life Processes and Nutrition
+
+6.1 What are Life Processes?
+The maintenance processes which perform the job of repair and maintenance of living organisms to prevent damage and breakdown are called life processes. Since energy is needed for these processes, life depends on carbon-based molecules and respiration.
+
+6.2 Autotrophic Nutrition (Photosynthesis):
+Autotrophs fulfill their energy requirements by photosynthesis:
+Carbon and energy requirements of the autotrophic organism are fulfilled by taking in substances from outside and converting them into stored forms of energy.
+Photosynthesis Equation:
+6CO2 + 12H2O --(Chlorophyll, Sunlight)--> C6H12O6 (Glucose) + 6O2 + 6H2O
+
+Key events in photosynthesis:
+1. Absorption of light energy by chlorophyll pigments.
+2. Conversion of light energy to chemical energy and splitting of water molecules into hydrogen and oxygen (photolysis).
+3. Reduction of carbon dioxide to carbohydrates.
+Stomata are tiny pores present on the surface of leaves through which massive amounts of gaseous exchange take place. Opening and closing of stomatal pores is controlled by guard cells swelling with water.
+
+6.3 Heterotrophic Nutrition & Human Digestion:
+Heterotrophs depend directly or indirectly on autotrophs.
+Human Alimentary Canal:
+- Mouth: Salivary amylase breaks starch down into maltose sugars.
+- Stomach: Gastric glands release hydrochloric acid (HCl), pepsin (enzyme digesting protein in acidic medium), and mucus (protects stomach lining).
+- Small Intestine: Longest part of alimentary canal. Receives bile juice from liver (emulsifies fats, makes medium alkaline) and pancreatic juice containing trypsin (proteins) and lipase (fats).
+- Absorption: Villi (finger-like projections in inner wall of intestine) increase surface area for nutrient absorption into bloodstream.
+
+6.4 Respiration:
+Glucose (6-carbon molecule) breaks down into pyruvate (3-carbon molecule) in the cytoplasm (Glycolysis).
+Paths of Pyruvate breakdown:
+1. Aerobic respiration (Mitochondria with O2): Yields CO2 + H2O + large energy (~36-38 ATP).
+2. Anaerobic respiration in Yeast (Fermentation without O2): Yields Ethanol + CO2 + Energy (2 ATP).
+3. Lack of oxygen in human muscle cells during vigorous exercise: Yields Lactic acid + Energy, causing muscle cramps.

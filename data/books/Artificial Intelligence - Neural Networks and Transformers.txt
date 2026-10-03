@@ -1,0 +1,69 @@
+Chapter 1: Neural Networks and Deep Learning Foundations
+
+1.1 Biological to Artificial Neurons:
+An Artificial Neuron (Perceptron) receives input features x_1, x_2, ..., x_n, multiplies each by a learned weight w_i, adds a scalar bias b, and applies a non-linear activation function sigma:
+z = sum(w_i * x_i) + b = W^T * X + b
+y_hat = sigma(z)
+
+Common Activation Functions:
+- Sigmoid: sigma(z) = 1 / (1 + e^(-z)). Maps values to (0, 1). Susceptible to vanishing gradient for large |z|.
+- ReLU (Rectified Linear Unit): f(z) = max(0, z). Solves vanishing gradient for positive values; computationally efficient.
+- Softmax: Used in multi-class classification output layer to convert raw logits into a probability distribution:
+  P(y = c | x) = e^(z_c) / sum_{j=1}^C e^(z_j)
+
+1.2 Loss Functions and Backpropagation:
+The difference between model prediction y_hat and true label y is quantified by a Loss Function:
+- Mean Squared Error (Regression): L = (1/2) * (y - y_hat)^2
+- Binary Cross-Entropy (Binary Classification): L = - [y * log(y_hat) + (1 - y) * log(1 - y_hat)]
+- Categorical Cross-Entropy (Multi-class): L = - sum_{c=1}^C y_c * log(y_hat_c)
+
+Backpropagation uses the Calculus Chain Rule to compute partial derivatives of the loss with respect to all weights and biases:
+dL/dw_ij = (dL/dy_hat) * (dy_hat/dz) * (dz/dw_ij)
+Weights are updated iteratively via Gradient Descent with learning rate alpha:
+w_new = w_old - alpha * (dL/dw)
+Modern optimizers like Adam combine momentum with root mean square adaptive learning rates.
+
+---
+
+Chapter 2: The Transformer Architecture and Large Language Models
+
+2.1 The Need for Attention (Limitations of RNNs):
+Traditional sequence models (RNNs, LSTMs) process tokens sequentially step-by-step:
+h_t = tanh(W_hh * h_{t-1} + W_xh * x_t)
+Drawbacks:
+1. Sequential bottleneck prevents parallel GPU computation.
+2. Long-range dependency decay: information from early tokens is forgotten over long sequences due to repeated matrix multiplications.
+
+2.2 The Self-Attention Mechanism:
+The Transformer ("Attention Is All You Need", Vaswani et al., 2017) relies entirely on self-attention, allowing every token in an input sequence to attend to every other token simultaneously.
+For each input embedding, we compute three vectors via learned linear projections:
+1. Query (Q = X * W_Q): "What am I looking for?"
+2. Key (K = X * W_K): "What information do I offer?"
+3. Value (V = X * W_V): "What is my actual content?"
+
+Scaled Dot-Product Attention Formula:
+Attention(Q, K, V) = softmax( (Q * K^T) / sqrt(d_k) ) * V
+- Q * K^T calculates similarity scores between all token pairs.
+- Division by sqrt(d_k) scales values to prevent softmax saturation and vanishing gradients in high dimensions.
+- Softmax normalizes dot products into attention weights (probabilities summing to 1.0).
+- Multiplying by V yields a contextualized representation for each token.
+
+2.3 Multi-Head Attention:
+Instead of computing attention once, Multi-Head Attention projects Q, K, and V into h different representation subspaces:
+MultiHead(Q, K, V) = Concat(head_1, ..., head_h) * W_O
+where head_i = Attention(Q * W_Q_i, K * W_K_i, V * W_V_i).
+This enables the network to simultaneously focus on syntax, semantics, and distant coreferences.
+
+2.4 Complete Transformer Block Components:
+Each layer consists of:
+1. Multi-Head Self-Attention
+2. Residual Connection & Layer Normalization: x_norm = LayerNorm(x + Sublayer(x))
+3. Position-wise Feed-Forward Network: FFN(x) = max(0, x * W_1 + b_1) * W_2 + b_2
+4. Positional Encoding: Since attention is permutation-invariant, sinusoidal or rotary positional embeddings (RoPE) inject sequence order.
+
+2.5 How LLMs (e.g., Gemma 2) Generate Text:
+Autoregressive decoding generates text one token at a time:
+P(w_1, w_2, ..., w_T) = prod_{t=1}^T P(w_t | w_1, ..., w_{t-1})
+- Temperature (T): Controls randomness. Dividing logits by T before softmax. Low T (0.2) = deterministic, high T (0.8) = creative.
+- Top-p (Nucleus) Sampling: Restricts choices to the smallest set of tokens whose cumulative probability exceeds p.
+- Quantization: 4-bit quantization (Q4_K_M) reduces 16-bit float weights into 4-bit integers, enabling Gemma 2:2B to run smoothly on standard CPUs under 2 GB RAM.
