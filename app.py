@@ -28,6 +28,7 @@ from src.sm2 import update_topic_after_quiz
 from src.rag_engine import rag_engine, extract_text_from_pdf
 from src.llm_client import (
     check_ollama_status,
+    unload_model,
     get_ollama_latest_logs,
     ask_socratic_tutor_with_thinking,
     ask_socratic_tutor,
@@ -214,8 +215,17 @@ def main():
             st.markdown("● **Ollama Engine:** <span style='color:#059669; font-weight:700;'>Connected (localhost)</span>", unsafe_allow_html=True)
             if models:
                 default_idx = models.index(DEFAULT_MODEL) if DEFAULT_MODEL in models else 0
-                chosen_model = st.selectbox("Active Gemma Model:", options=models, index=default_idx)
-                st.session_state.selected_model = chosen_model
+                chosen_model = st.selectbox("Active Gemma Model:", options=models, index=default_idx, key="side_model_picker")
+                if chosen_model != st.session_state.get("selected_model", DEFAULT_MODEL):
+                    unload_model(st.session_state.get("selected_model", DEFAULT_MODEL))
+                    st.session_state.selected_model = chosen_model
+                    st.rerun()
+
+                if st.button("🧹 Free RAM (Unload Models)", use_container_width=True, help="Immediately flushes inactive models from RAM/VRAM"):
+                    for m in models:
+                        unload_model(m)
+                    st.success("Freed RAM! Memory reclaimed.")
+                    st.rerun()
             
             with st.expander("📟 Live Terminal Engine Logs", expanded=False):
                 latest_logs = get_ollama_latest_logs(n_lines=12)
@@ -249,7 +259,13 @@ def main():
             curr_sel = st.session_state.get("selected_model", DEFAULT_MODEL)
             mod_idx = model_options.index(curr_sel) if curr_sel in model_options else 0
             new_model = st.selectbox("⚡ Active Model:", options=model_options, index=mod_idx, key="top_model_switcher")
-            st.session_state.selected_model = new_model
+            if new_model != curr_sel:
+                # Eagerly unload previous model from memory to ensure zero memory stacking
+                unload_model(curr_sel)
+                st.session_state.selected_model = new_model
+                st.rerun()
+            else:
+                st.session_state.selected_model = new_model
 
     current_model = st.session_state.get("selected_model", DEFAULT_MODEL)
 

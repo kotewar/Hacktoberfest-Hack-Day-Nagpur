@@ -25,6 +25,22 @@ def check_ollama_status() -> Tuple[bool, List[str]]:
         logger.debug(f"Ollama healthcheck failed: {e}")
     return False, []
 
+def unload_model(model_name: str) -> bool:
+    """
+    Explicitly unloads a model from RAM/VRAM by setting keep_alive to 0.
+    Ensures that switching models does not stack memory or cause RAM exhaustion.
+    """
+    try:
+        resp = requests.post(
+            f"{OLLAMA_BASE_URL}/api/generate",
+            json={"model": model_name, "keep_alive": 0},
+            timeout=5
+        )
+        return resp.status_code == 200
+    except Exception as e:
+        logger.debug(f"Failed to unload model {model_name}: {e}")
+        return False
+
 def get_ollama_latest_logs(n_lines: int = 25) -> str:
     """
     Retrieves the most recent real-time logs from the local Ollama server.
