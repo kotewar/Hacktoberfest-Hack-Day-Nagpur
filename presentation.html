@@ -27,12 +27,12 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
+            width: 100vw;
             height: 100vh;
+            margin: 0;
+            padding: 0;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             user-select: none;
         }
 
@@ -42,44 +42,45 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
+            height: 3px;
+            background: rgba(255, 255, 255, 0.08);
             z-index: 100;
         }
 
         .progress-bar {
             height: 100%;
-            width: 12.5%;
+            width: 20%;
             background: linear-gradient(90deg, #38BDF8, #A855F7);
             transition: width 0.3s ease;
         }
 
-        /* Slide Container */
+        /* Slide Container: 100% Full Screen */
         .presentation-deck {
             position: relative;
-            width: 90vw;
-            max-width: 1150px;
-            height: 82vh;
-            background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.12), transparent 40%),
-                        radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.10), transparent 40%),
-                        #111827;
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            background: radial-gradient(circle at top right, rgba(168, 85, 247, 0.12), transparent 45%),
+                        radial-gradient(circle at bottom left, rgba(56, 189, 248, 0.10), transparent 45%),
+                        #0B0F19;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 60px;
+            padding: 30px 60px;
         }
 
         .slide {
             display: none;
             width: 100%;
+            max-width: 1400px;
             height: 100%;
             flex-direction: column;
             justify-content: center;
-            animation: fadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: fadeIn 0.25s ease-out;
         }
 
         .slide.active {
@@ -87,8 +88,8 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(12px) scale(0.99); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from { opacity: 0; transform: scale(0.995); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* Typography & Badges */
@@ -96,44 +97,45 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 14px;
+            padding: 5px 12px;
             background: rgba(56, 189, 248, 0.15);
-            border: 1px solid rgba(56, 189, 248, 0.4);
+            border: 1px solid rgba(56, 189, 248, 0.35);
             color: #38BDF8;
             border-radius: 9999px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             width: fit-content;
         }
 
         .badge-green {
             background: rgba(16, 185, 129, 0.15);
-            border-color: rgba(16, 185, 129, 0.4);
+            border-color: rgba(16, 185, 129, 0.35);
             color: #34D399;
         }
 
         .badge-purple {
             background: rgba(168, 85, 247, 0.15);
-            border-color: rgba(168, 85, 247, 0.4);
+            border-color: rgba(168, 85, 247, 0.35);
             color: #C084FC;
         }
 
         h1 {
-            font-size: 3.2rem;
+            font-size: 3.6rem;
             font-weight: 800;
-            line-height: 1.15;
+            line-height: 1.1;
             background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
+            letter-spacing: -1px;
         }
 
         h2 {
             font-size: 2.2rem;
             font-weight: 700;
             color: #F8FAFC;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -143,8 +145,8 @@
             font-size: 1.25rem;
             color: var(--text-muted);
             line-height: 1.6;
-            margin-bottom: 28px;
-            max-width: 850px;
+            margin-bottom: 24px;
+            max-width: 950px;
         }
 
         /* Grids & Cards */
@@ -152,25 +154,28 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
+            width: 100%;
         }
 
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
+            gap: 18px;
+            width: 100%;
         }
 
         .grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            gap: 18px;
+            width: 100%;
         }
 
         .card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 14px;
-            padding: 22px;
+            padding: 24px 26px;
             transition: all 0.2s ease;
         }
 
@@ -181,21 +186,21 @@
 
         .card-icon {
             font-size: 1.8rem;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             display: block;
         }
 
         .card-title {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: #F1F5F9;
             margin-bottom: 8px;
         }
 
         .card-desc {
-            font-size: 0.92rem;
+            font-size: 0.98rem;
             color: #94A3B8;
-            line-height: 1.5;
+            line-height: 1.55;
         }
 
         .highlight-text {
@@ -236,55 +241,56 @@
             font-weight: bold;
         }
 
-        /* Bottom Controls Bar */
+        /* Unobtrusive Floating Mini Controls */
         .controls-bar {
             position: fixed;
-            bottom: 24px;
+            bottom: 14px;
+            right: 20px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            background: rgba(17, 24, 39, 0.85);
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.75);
             backdrop-filter: blur(12px);
-            border: 1px solid var(--card-border);
-            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 5px 12px;
             border-radius: 9999px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            opacity: 0.35;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            z-index: 200;
+        }
+
+        .controls-bar:hover {
+            opacity: 1;
+            transform: scale(1.02);
         }
 
         .btn-nav {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             color: #F8FAFC;
-            padding: 6px 14px;
+            padding: 4px 10px;
             border-radius: 9999px;
             cursor: pointer;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             transition: all 0.2s;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
         }
 
         .btn-nav:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(56, 189, 248, 0.25);
             border-color: #38BDF8;
         }
 
         .slide-counter {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            font-weight: 600;
-            min-width: 60px;
-            text-align: center;
-        }
-
-        .key-hint {
-            font-size: 0.75rem;
-            color: #64748B;
-            border: 1px solid #334155;
-            padding: 2px 6px;
-            border-radius: 4px;
+            font-size: 0.82rem;
+            color: #94A3B8;
+            font-weight: 700;
+            padding: 0 6px;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
@@ -354,14 +360,14 @@
         </section>
 
         <!-- Slide 3: System Architecture (SVG Vector Diagram) -->
-        <section class="slide" data-slide="3">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <div class="badge badge-purple" style="margin-bottom: 0;">🏛️ System Architecture & Tech Stack</div>
+        <section class="slide" data-slide="3" style="max-width: 100%; height: 100%; justify-content: flex-start;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <div class="badge badge-purple" style="margin-bottom: 0;">🏛️ System Architecture &amp; Tech Stack</div>
                 <div style="font-size: 0.85rem; color: #94A3B8;">✈️ 100% Offline • localhost:11434 • Zero Cloud Calls</div>
             </div>
-            <h2 style="margin-bottom: 12px; font-size: 1.85rem;">Decoupled, Deterministic &amp; Zero-Latency Pipeline</h2>
-            <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" style="width: 100%; max-width: 950px; max-height: 58vh; height: auto;">
+            <h2 style="margin-bottom: 8px; font-size: 1.85rem;">Decoupled, Deterministic &amp; Zero-Latency Pipeline</h2>
+            <div style="width: 100%; flex: 1; min-height: 0; display: flex; justify-content: center; align-items: center;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 450" style="width: 100%; max-height: calc(100vh - 120px); height: 100%;">
                   <defs>
                     <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stop-color="#0B0F19"/>
@@ -594,19 +600,18 @@
 
     </main>
 
-    <!-- Navigation Controls -->
-    <nav class="controls-bar">
-        <button class="btn-nav" id="prevBtn">
-            <span>&#8592;</span> Prev
+    <!-- Compact Floating Mini Controls -->
+    <nav class="controls-bar" title="Navigate with Left/Right Arrows or Space">
+        <button class="btn-nav" id="prevBtn" onclick="prevSlide(event)" title="Previous (Left Arrow)">
+            &#8592;
         </button>
         <div class="slide-counter">
-            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">5</span>
+            <span id="currentSlideNum">1</span>/<span id="totalSlidesNum">5</span>
         </div>
-        <button class="btn-nav" id="nextBtn">
-            Next <span>&#8594;</span>
+        <button class="btn-nav" id="nextBtn" onclick="nextSlide(event)" title="Next (Right Arrow or Space)">
+            &#8594;
         </button>
-        <span class="key-hint">Left / Right Arrow or Space</span>
-        <button class="btn-nav" id="fullscreenBtn" title="Toggle Fullscreen">
+        <button class="btn-nav" id="fullscreenBtn" onclick="toggleFullscreen(event)" title="Toggle Fullscreen (F)">
             ⛶
         </button>
     </nav>
@@ -638,24 +643,22 @@
             progressBar.style.width = `${((currentSlide + 1) / totalSlides) * 100}%`;
         }
 
-        function nextSlide() {
+        function nextSlide(e) {
+            if (e) e.stopPropagation();
             if (currentSlide < totalSlides - 1) updateSlide(currentSlide + 1);
         }
 
-        function prevSlide() {
+        function prevSlide(e) {
+            if (e) e.stopPropagation();
             if (currentSlide > 0) updateSlide(currentSlide - 1);
         }
 
-        // Click Handlers
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-
-        // Keyboard Handlers
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+        // Global Keyboard Navigation
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'Enter') {
                 e.preventDefault();
                 nextSlide();
-            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+            } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'Backspace') {
                 e.preventDefault();
                 prevSlide();
             } else if (e.key === 'f' || e.key === 'F') {
@@ -664,14 +667,14 @@
         });
 
         // Fullscreen Toggle
-        function toggleFullscreen() {
+        function toggleFullscreen(e) {
+            if (e) e.stopPropagation();
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(() => {});
             } else {
                 if (document.exitFullscreen) document.exitFullscreen();
             }
         }
-        fullscreenBtn.addEventListener('click', toggleFullscreen);
 
         // Initialize
         updateSlide(0);
