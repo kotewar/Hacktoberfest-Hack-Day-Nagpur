@@ -298,223 +298,119 @@
     <!-- Presentation Viewport -->
     <main class="presentation-deck">
 
-        <!-- Slide 1: Title -->
+        <!-- Slide 1: Title & Hook -->
         <section class="slide active" data-slide="1">
             <div class="badge badge-green">✈️ 100% Airplane Mode • Local-First AI</div>
             <h1>🎓 EduGemma</h1>
-            <p class="subtitle" style="font-size: 1.45rem; color: #E2E8F0; margin-bottom: 20px;">
-                The 100% Offline AI Study Cockpit & Socratic Companion
+            <p class="subtitle" style="font-size: 1.45rem; color: #E2E8F0; margin-bottom: 16px;">
+                The 100% Offline AI Study Cockpit & Socratic Tutor
             </p>
-            <p class="subtitle" style="margin-bottom: 30px;">
-                Designed for students with low or zero internet connectivity. Powered on-device by <span class="highlight-text">Google Gemma 2:2B</span> without cloud subscriptions, API keys, or cellular data costs.
+            <p class="subtitle" style="margin-bottom: 24px;">
+                Education today is expensive and locked behind internet data limits and AI subscription paywalls. 
+                <br><br>
+                <b class="highlight-text">EduGemma makes personalized learning 100% free, unlimited, and private</b> by running on-device with <span class="highlight-text">Google Gemma 2:2B</span> under 2.5 GB RAM on plain CPUs.
             </p>
-            <div style="display: flex; gap: 16px; align-items: center;">
+            <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap;">
                 <span class="badge badge-purple">⚡ Hacktoberfest Hack Day Nagpur x GDGC Nagpur</span>
-                <span class="badge">🧠 Sub-2.5GB RAM Footprint on CPU</span>
+                <span class="badge">🧠 Zero Cloud Latency / Zero API Costs</span>
+                <span class="badge badge-green">💻 Single Unified Cockpit</span>
             </div>
         </section>
 
-        <!-- Slide 2: The Problem -->
+        <!-- Slide 2: The 4 Core Pillars -->
         <section class="slide" data-slide="2">
-            <div class="badge">🌍 The Problem Statement</div>
-            <h2>The Educational Connectivity & AI Divide</h2>
-            <p class="subtitle">
-                While cloud AI tools evolve rapidly, millions of students remain entirely locked out.
-            </p>
-            <div class="grid-3">
+            <div class="badge">🌟 Core Capabilities</div>
+            <h2>The 4 Pillars in a Single Unified Screen</h2>
+            <div class="grid-2">
                 <div class="card">
-                    <span class="card-icon">📵</span>
-                    <div class="card-title">Intermittent Connectivity</div>
-                    <div class="card-desc">Rural & tier-2/3 students face frequent blackouts and strict 1-2 GB daily mobile quotas that run out instantly.</div>
+                    <span class="card-icon">📖</span>
+                    <div class="card-title">1. Knowledge Canvas & Custom Topics</div>
+                    <div class="card-desc">
+                        Reads built-in science/CS textbooks <b>OR authors any custom topic on-the-fly</b> from judge prompts. Includes 1-click <i>"Explain Simply"</i>, <i>"Village Analogy"</i>, and <i>"Key Formulas"</i>.
+                    </div>
                 </div>
                 <div class="card">
-                    <span class="card-icon">💳</span>
-                    <div class="card-title">Expensive AI Subscriptions</div>
-                    <div class="card-desc">Free AI credits exhaust quickly. Commercial LLMs cost $20/month—prohibitive for underprivileged students.</div>
+                    <span class="card-icon">🤖</span>
+                    <div class="card-title">2. Socratic Tutor with Visible Thinking</div>
+                    <div class="card-desc">
+                        Refuses to spoon-feed answers. Guides students with probing hints, everyday analogies, and reveals its <b>Inner Pedagogical Chain-of-Thought</b> before replying.
+                    </div>
                 </div>
                 <div class="card">
-                    <span class="card-icon">🥱</span>
-                    <div class="card-title">Passive Rote Memorization</div>
-                    <div class="card-desc">Textbooks alone don't provide active questioning, intuitive local analogies, or personalized spaced recall.</div>
+                    <span class="card-icon">🗺️</span>
+                    <div class="card-title">3. Visual Mind Maps & CS Architecture</div>
+                    <div class="card-desc">
+                        Turns complex concepts into interactive Mermaid diagrams and step-by-step code traces (Transformer Attention, Neural Backpropagation, BSTs, Dynamic Programming).
+                    </div>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎯</span>
+                    <div class="card-title">4. Active Recall & SM-2 Spaced Repetition</div>
+                    <div class="card-desc">
+                        Generates instant 3-question quizzes and grades open-ended answers out of 5 marks. Uses the SuperMemo-2 algorithm to schedule review intervals and build daily streaks.
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Slide 3: The Solution -->
+        <!-- Slide 3: Live Demo Flow -->
         <section class="slide" data-slide="3">
-            <div class="badge badge-green">💡 The Solution</div>
-            <h2>EduGemma: Unlimited Learning in Airplane Mode</h2>
-            <p class="subtitle">
-                A single unified desktop workstation turning any standard low-cost laptop into an elite 24/7 personal tutor.
-            </p>
-            <div class="grid-2">
-                <div class="card">
-                    <span class="card-icon">⚡</span>
-                    <div class="card-title">100% On-Device & Zero Internet</div>
-                    <div class="card-desc">All embeddings, vector search, SQLite analytics, and LLM inference run strictly on <code style="color:#38BDF8;">localhost</code>. Zero data uploaded, zero tracking.</div>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🖥️</span>
-                    <div class="card-title">Runs on Standard Laptop CPUs</div>
-                    <div class="card-desc">Targeting <b>Gemma 2:2B</b> with 4-bit quantization, running at ~28 tokens/sec using under 2.2 GB RAM with no GPU needed.</div>
-                </div>
-                <div class="card">
-                    <span class="card-icon">✨</span>
-                    <div class="card-title">Learn Any Topic on Demand</div>
-                    <div class="card-desc">Choose from built-in science/CS syllabi or type any custom topic/judge prompt to author a full chapter on the fly.</div>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🔁</span>
-                    <div class="card-title">Spaced Repetition Mastery (SM-2)</div>
-                    <div class="card-desc">Calculates scientifically optimal review schedules so students remember theorems and formulas before exams.</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 4: Architecture -->
-        <section class="slide" data-slide="4">
-            <div class="badge badge-purple">🏛️ System Architecture</div>
-            <h2>Decoupled, Deterministic & Lightweight</h2>
-            <p class="subtitle">
-                Engineered for maximum reliability without incurring cloud latency or failure points.
-            </p>
-            <div class="arch-flow">
-                <div class="arch-node highlight">
-                    <div style="font-size:1.4rem;">💻</div>
-                    <div class="card-title" style="margin-top:6px;">Streamlit Cockpit</div>
-                    <div class="card-desc">Single-Page Unified IDE UI</div>
-                </div>
-                <div class="arch-arrow">➔</div>
-                <div class="arch-node">
-                    <div style="font-size:1.4rem;">📚</div>
-                    <div class="card-title" style="margin-top:6px;">Local RAG Store</div>
-                    <div class="card-desc">JSON / FastEmbed Vector DB</div>
-                </div>
-                <div class="arch-arrow">➔</div>
-                <div class="arch-node highlight">
-                    <div style="font-size:1.4rem;">🧠</div>
-                    <div class="card-title" style="margin-top:6px;">Ollama Engine</div>
-                    <div class="card-desc">Gemma 2:2B (Q4 CPU)</div>
-                </div>
-                <div class="arch-arrow">➔</div>
-                <div class="arch-node">
-                    <div style="font-size:1.4rem;">💾</div>
-                    <div class="card-title" style="margin-top:6px;">SQLite (edugemma.db)</div>
-                    <div class="card-desc">SM-2 Spaced Repetition</div>
-                </div>
-            </div>
-            <div style="margin-top:22px; font-size:0.95rem; color:#94A3B8; text-align:center;">
-                ⚡ <b>Zero Network Latency:</b> User profiles, quiz scores, and daily streaks update deterministically in SQLite.
-            </div>
-        </section>
-
-        <!-- Slide 5: The 4 Core Superpowers -->
-        <section class="slide" data-slide="5">
-            <div class="badge">🌟 Key Capabilities</div>
-            <h2>The 4 Core Superpowers of EduGemma</h2>
-            <div class="grid-2">
-                <div class="card">
-                    <div class="card-title">1. 📖 Unified Knowledge Canvas</div>
-                    <div class="card-desc">
-                        Reads pre-loaded syllabi (Biology, Physics, Chemistry, CS/AI) or authors chapters on-the-fly. Includes 1-click shortcuts: <b>Explain Simply</b>, <b>Village/Home Analogy</b>, and <b>Formulas</b>.
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">2. 🤖 Socratic Tutor with Visible Thinking</div>
-                    <div class="card-desc">
-                        Refuses to spoon-feed answers. Guides with probing questions, reveals its <b>Inner Pedagogical Thought Process</b>, and shows live local token inference speed.
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">3. 🗺️ Visual Mind Maps & CS Traces</div>
-                    <div class="card-desc">
-                        Synthesizes responsive Mermaid flowcharts and data structures (Self-Attention pipelines, Backpropagation, BSTs, Dynamic Programming).
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-title">4. 🎯 Active Recall & Spaced Repetition</div>
-                    <div class="card-desc">
-                        Generates instant 3-question MCQs and evaluates subjective short answers out of 5 marks, automatically updating the student's mastery matrix.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Slide 6: College CS & AI Focus -->
-        <section class="slide" data-slide="6">
-            <div class="badge badge-purple">💻 Deep Tech Focus</div>
-            <h2>College Computer Science & AI Explainer</h2>
-            <p class="subtitle">
-                Engineered specifically for engineering & college undergrads mastering complex architectures.
-            </p>
-            <div class="grid-3">
-                <div class="card">
-                    <div class="card-title">🤖 Transformer Self-Attention</div>
-                    <div class="card-desc">Visual $Q, K, V$ linear projections, scaled dot-product math, and $O(N^2)$ memory bottleneck analysis.</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">🧠 Backprop & Gradients</div>
-                    <div class="card-desc">Step-by-step calculus chain rule derivation, code trace, and vanishing gradient comparisons (Sigmoid vs ReLU).</div>
-                </div>
-                <div class="card">
-                    <div class="card-title">🌲 Data Structures & DP</div>
-                    <div class="card-desc">Binary Search Trees, Dijkstra graph paths, and 0/1 Knapsack memoization vs tabulation.</div>
-                </div>
-            </div>
-            <div style="margin-top: 18px; padding: 14px 20px; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 10px; font-size: 0.9rem; color: #E9D5FF;">
-                🎯 <b>FAANG & University Exam Traps:</b> Every concept highlights the #1 edge case or pitfall examiners look for.
-            </div>
-        </section>
-
-        <!-- Slide 7: Live Demo Walkthrough -->
-        <section class="slide" data-slide="7">
             <div class="badge badge-green">🎬 Live Demo Script</div>
-            <h2>5-Minute Walkthrough for Judges</h2>
+            <h2>4-Step Walkthrough for Judges</h2>
             <div class="grid-4">
                 <div class="card">
                     <div class="badge badge-green" style="margin-bottom:8px;">Step 1</div>
-                    <div class="card-title">Airplane Mode</div>
-                    <div class="card-desc">Show zero Wi-Fi required on <code style="color:#38BDF8;">localhost:8501</code>.</div>
+                    <div class="card-title">✈️ Airplane Mode</div>
+                    <div class="card-desc">Demonstrate zero Wi-Fi required on <code>localhost:8501</code> with on-device Gemma.</div>
                 </div>
                 <div class="card">
                     <div class="badge badge-purple" style="margin-bottom:8px;">Step 2</div>
-                    <div class="card-title">Judge's Custom Topic</div>
-                    <div class="card-desc">Type any custom prompt $\rightarrow$ Gemma authors a structured chapter on the fly.</div>
+                    <div class="card-title">✨ Judge's Custom Topic</div>
+                    <div class="card-desc">Type any custom question $\rightarrow$ Gemma authors a structured chapter dynamically.</div>
                 </div>
                 <div class="card">
                     <div class="badge" style="margin-bottom:8px;">Step 3</div>
-                    <div class="card-title">Gemma's Thinking</div>
-                    <div class="card-desc">Ask a doubt in Co-Pilot $\rightarrow$ Expand the inner Chain-of-Thought reasoning.</div>
+                    <div class="card-title">🧠 Gemma's Inner Thinking</div>
+                    <div class="card-desc">Ask a doubt in Co-Pilot $\rightarrow$ Expand the inner reasoning and pedagogical plan.</div>
                 </div>
                 <div class="card">
                     <div class="badge badge-green" style="margin-bottom:8px;">Step 4</div>
-                    <div class="card-title">Active Recall & SM-2</div>
-                    <div class="card-desc">Take a 3-question quiz $\rightarrow$ Watch mastery % & streak update live!</div>
+                    <div class="card-title">⚡ Active Recall (SM-2)</div>
+                    <div class="card-desc">Solve a 3-question quiz $\rightarrow$ Watch mastery % and daily streak update live in SQLite!</div>
                 </div>
             </div>
-            <div style="margin-top: 24px; text-align: center; color: var(--text-muted); font-size: 0.95rem;">
-                ⚡ <i>Bonus: Switch active models on-the-fly via the top bar (Gemma 2:2B vs Gemma 4)!</i>
+            <div style="margin-top: 22px; padding: 12px 18px; background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 10px; text-align: center; font-size: 0.95rem; color: #E2E8F0;">
+                ⚡ <b>Hot-Swappable Engine:</b> Switch models on-the-fly via the top bar (<code>gemma2:2b</code> $\leftrightarrow$ <code>gemma4:e4b</code>)!
             </div>
         </section>
 
-        <!-- Slide 8: Conclusion -->
-        <section class="slide" data-slide="8">
-            <div class="badge badge-green">🚀 Vision & Impact</div>
-            <h1 style="font-size: 2.8rem; margin-bottom: 20px;">Democratizing AI Tutoring for Every Student</h1>
-            <p class="subtitle" style="font-size: 1.25rem;">
-                EduGemma turns the promise of AI into an equitable reality. Zero data, zero fees, unlimited learning.
-            </p>
-            <div class="card" style="max-width: 650px; background: rgba(56, 189, 248, 0.08); border-color: rgba(56, 189, 248, 0.3);">
-                <div style="display:flex; justify-content:space-between; font-size:0.95rem; margin-bottom:8px;">
-                    <span><b>Hackathon:</b> Hacktoberfest Hack Day Nagpur x GDGC Nagpur</span>
-                    <span style="color:#38BDF8;"><b>Status:</b> Ready</span>
+        <!-- Slide 4: Why EduGemma Wins -->
+        <section class="slide" data-slide="4">
+            <div class="badge badge-purple">🚀 Impact & Vision</div>
+            <h2>Why EduGemma Wins</h2>
+            <div class="grid-3" style="margin-bottom: 24px;">
+                <div class="card">
+                    <span class="card-icon">💰</span>
+                    <div class="card-title">Zero Marginal Cost</div>
+                    <div class="card-desc">Pre-installable on low-cost government school desktops or village community PCs without ongoing cloud subscriptions.</div>
                 </div>
-                <div style="font-size:0.95rem; color:#94A3B8;">
-                    <b>Model:</b> Google Gemma 2 (2B Parameters, Quantized CPU Localhost)
+                <div class="card">
+                    <span class="card-icon">🔒</span>
+                    <div class="card-title">100% Private & Resilient</div>
+                    <div class="card-desc">No network timeouts, no tracking, and no dependency on unstable telecom towers during exams.</div>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🎓</span>
+                    <div class="card-title">Pedagogically Sound</div>
+                    <div class="card-desc">Replaces rote memorization with Socratic questioning and spaced repetition proven to boost retention.</div>
                 </div>
             </div>
-            <div style="margin-top: 28px; font-size: 1.1rem; color: #34D399; font-weight: 700;">
-                ✨ Let's jump into the live demo! Questions welcome.
+            <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 24px; background:rgba(16, 185, 129, 0.08); border:1px solid rgba(16, 185, 129, 0.3); border-radius:12px;">
+                <div>
+                    <div style="font-weight:700; color:#34D399; font-size:1.1rem;">Ready for Questions & Live Demo</div>
+                    <div style="font-size:0.88rem; color:#94A3B8;">Hacktoberfest Hack Day Nagpur x GDGC Nagpur • Google Gemma 2:2B</div>
+                </div>
+                <div class="badge badge-green" style="margin:0;">🚀 Start Demo</div>
             </div>
         </section>
 
@@ -526,7 +422,7 @@
             <span>&#8592;</span> Prev
         </button>
         <div class="slide-counter">
-            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">8</span>
+            <span id="currentSlideNum">1</span> / <span id="totalSlidesNum">4</span>
         </div>
         <button class="btn-nav" id="nextBtn">
             Next <span>&#8594;</span>
