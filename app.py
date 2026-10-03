@@ -33,6 +33,7 @@ from src.llm_client import (
     ask_socratic_tutor,
     explain_simply_analogy,
     summarize_key_formulas,
+    synthesize_custom_topic_notes,
     generate_quiz_json,
     evaluate_subjective_answer,
     generate_concept_graph,
@@ -243,23 +244,103 @@ def main():
     with c_hdr2:
         st.markdown(f"<div style='text-align:right; padding-top:10px;'>👤 <b>Student:</b> <code>{active_user['username']}</code> &nbsp;|&nbsp; ⚡ <b>Model:</b> <code>{st.session_state.get('selected_model', DEFAULT_MODEL)}</code></div>", unsafe_allow_html=True)
 
+    # Initialize custom topic cache in session state if not present
+    if "custom_topics_cache" not in st.session_state:
+        st.session_state.custom_topics_cache = {}
+
     # Global Topic Selector & Real-Time Mastery Strip in a native theme-aware container
     with st.container(border=True):
-        col_sel, col_stat = st.columns([1.5, 2.0], gap="medium")
+        col_mode, col_stat = st.columns([1.6, 2.0], gap="medium")
 
-        with col_sel:
-            selected_file_name = st.selectbox(
-                "🎯 Active Study Topic / Chapter:",
-                options=list(file_map.keys()),
-                index=0 if valid_files else 0,
-                key="cockpit_chapter_selector"
+        with col_mode:
+            topic_mode = st.radio(
+                "Topic Source:",
+                options=["📚 Library Textbooks", "✨ Custom Topic / Judge's Prompt"],
+                horizontal=True,
+                key="cockpit_topic_mode_radio"
             )
-            target_file = file_map[selected_file_name]
-            parts = target_file.stem.replace("_", " ").split(" - ")
-            active_subject = parts[0].strip() if len(parts) > 1 else "General"
-            active_chapter = parts[1].strip() if len(parts) > 1 else target_file.stem.replace("_", " ")
 
-        # Topic-specific Mastery & Repetition Stats from SQLite
+        active_chapter = ""
+        active_subject = "General"
+        active_content = ""
+
+        # Mode 1: Pre-indexed Library Textbooks
+        if topic_mode == "📚 Library Textbooks":
+            col_sel, _ = st.columns([1.6, 2.0], gap="medium")
+            with col_sel:
+                selected_file_name = st.selectbox(
+                    "🎯 Active Study Topic / Chapter:",
+                    options=list(file_map.keys()),
+                    index=0 if valid_files else 0,
+                    key="cockpit_chapter_selector"
+                )
+                target_file = file_map[selected_file_name]
+                parts = target_file.stem.replace("_", " ").split(" - ")
+                active_subject = parts[0].strip() if len(parts) > 1 else "General"
+                active_chapter = parts[1].strip() if len(parts) > 1 else target_file.stem.replace("_", " ")
+
+                if target_file.suffix.lower() == ".pdf":
+                    active_content = extract_text_from_pdf(target_file)
+                else:
+                    try:
+                        active_content = target_file.read_text(encoding="utf-8")
+                    except Exception:
+                        active_content = target_file.read_text(encoding="latin-1", errors="ignore")
+
+        # Mode 2: Custom Topic / Judge's Prompt
+        else:
+            col_c1, col_c2, col_c3 = st.columns([1.8, 1.0, 0.9], gap="small")
+            with col_c1:
+                custom_topic_input = st.text_input(
+                    "✍️ What do you want to learn? (Enter judge's prompt / custom topic):",
+                    value=st.session_state.get("active_custom_topic_name", "Quantum Computing and Qubits"),
+                    placeholder="e.g. Merge Sort vs QuickSort, Photosynthesis, B-Tree Indexing...",
+                    key="custom_topic_text_box"
+                )
+            with col_c2:
+                custom_subject_input = st.selectbox(
+                    "Category:",
+                    options=["Computer Science", "Artificial Intelligence", "Physics", "Chemistry", "Biology", "Mathematics", "General Science"],
+                    key="custom_subject_dropdown"
+                )
+            with col_c3:
+                st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
+                synth_btn = st.button("⚡ Generate", type="primary", use_container_width=True, help="Use Gemma to author a complete study chapter on-the-fly")
+
+            active_chapter = custom_topic_input.strip() or "Custom Topic"
+            active_subject = custom_subject_input
+
+            # Optional reference text expander
+            with st.expander("📝 Optional: Paste Reference Notes / Judge's Excerpt (Optional)"):
+                custom_ref_text = st.text_area(
+                    "Leave blank for Gemma to generate from scratch, or paste custom syllabus notes here:",
+                    placeholder="Paste reference text here if available...",
+                    height=80,
+                    key="custom_ref_pasted_area"
+                )
+
+            # Auto-synthesize or user clicked Generate button
+            if synth_btn or active_chapter not in st.session_state.custom_topics_cache:
+                with st.spinner(f"Gemma is authoring a 100% offline study chapter on '{active_chapter}'..."):
+                    synthesized = synthesize_custom_topic_notes(
+                        active_chapter,
+                        context=custom_ref_text if 'custom_ref_text' in locals() and custom_ref_text else ""
+                    )
+                    st.session_state.custom_topics_cache[active_chapter] = synthesized
+                    st.session_state.active_custom_topic_name = active_chapter
+                    
+                    # Save to data/books/ and index into local RAG vector store
+                    try:
+                        clean_fn = re.sub(r'[^\w\s-]', '', f"{active_subject} - {active_chapter}").strip() + ".txt"
+                        save_p = BOOKS_DIR / clean_fn
+                        save_p.write_text(synthesized, encoding="utf-8")
+                        rag_engine.index_books(BOOKS_DIR)
+                    except Exception:
+                        pass
+
+            active_content = st.session_state.custom_topics_cache.get(active_chapter, f"## {active_chapter}\n\nGenerating study chapter...")
+
+        # Topic-specific Mastery & Repetition Stats from SQLite (Shared for both Library & Custom!)
         topic_rec = get_topic_mastery_record(active_user["id"], active_chapter)
         summary_stats = get_study_summary(active_user["id"])
 
@@ -276,24 +357,14 @@ def main():
             status_badge = "🔴 Needs Practice"
 
         with col_stat:
-            st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
             st.markdown(f"""
-            <div style='display:flex; flex-wrap:wrap; gap:8px; align-items:center;'>
+            <div style='display:flex; flex-wrap:wrap; gap:8px; align-items:center; padding-top:4px;'>
                 <span class='stat-pill-streak'>🔥 Streak: <b>{summary_stats['streak_days']} Day(s)</b></span>
                 <span class='stat-pill-mastery'>🎯 Mastery: <b>{mastery_pct}% ({status_badge})</b></span>
                 <span class='stat-pill-interval'>🔁 Interval: <b>{interval}d</b></span>
                 <span class='stat-pill-review'>⏰ Review: <b>{next_rev[:10] if next_rev != 'Not Scheduled' else 'Today'}</b></span>
             </div>
             """, unsafe_allow_html=True)
-
-    # Load active chapter text
-    if target_file.suffix.lower() == ".pdf":
-        active_content = extract_text_from_pdf(target_file)
-    else:
-        try:
-            active_content = target_file.read_text(encoding="utf-8")
-        except Exception:
-            active_content = target_file.read_text(encoding="latin-1", errors="ignore")
 
     st.session_state.active_chapter = active_chapter
     st.session_state.active_subject = active_subject

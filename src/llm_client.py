@@ -249,6 +249,32 @@ def summarize_key_formulas(text: str, model: str = DEFAULT_MODEL) -> str:
     )
     return query_ollama(prompt, model=model)
 
+def synthesize_custom_topic_notes(
+    topic: str,
+    context: str = "",
+    model: str = DEFAULT_MODEL
+) -> str:
+    """
+    Synthesizes structured textbook-grade notes on-the-fly for any custom topic or judge's prompt.
+    """
+    prompt = (
+        f"You are an expert textbook author and professor creating comprehensive study notes for a student.\n"
+        f"Topic to Learn: {topic}\n"
+        f"Reference Context (if provided): {context[:800] if context else 'None'}\n\n"
+        "Create concise, high-yield textbook notes with these exact headings:\n"
+        "## 1. Core Principle & Intuition\n"
+        "Explain the fundamental idea in 2-3 clear, intuitive sentences.\n\n"
+        "## 2. Scientific / Technical Mechanism\n"
+        "Step-by-step breakdown of how it works under the hood.\n\n"
+        "## 3. Key Formulas, Laws or Algorithmic Logic\n"
+        "List all governing equations, code structures, or theorems.\n\n"
+        "## 4. Real-World Applications & Examples\n"
+        "Where this is applied in industry, daily life, or modern technology.\n\n"
+        "## 5. High-Yield Exam Summary & Common Traps\n"
+        "Key takeaways for board/college exams and the #1 mistake students make."
+    )
+    return query_ollama(prompt, model=model)
+
 def generate_quiz_json(text: str, count: int = 3, model: str = DEFAULT_MODEL) -> List[Dict[str, Any]]:
     """
     Generates structured MCQs from context text and parses raw JSON output safely.
