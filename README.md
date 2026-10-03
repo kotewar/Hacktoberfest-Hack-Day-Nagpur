@@ -46,32 +46,159 @@ Hacktoberfest-Hack-Day-Nagpur/
 
 ---
 
-## 🚀 Quick Start (Running Offline)
+## 🚀 End-to-End Setup Guide (Run on Any Local Machine)
 
-### 1. Prerequisites
-- **Python 3.10+**
-- **Ollama** installed with `gemma2:2b`:
-  ```bash
-  ollama run gemma2:2b
-  ```
+Follow these steps to set up and run EduGemma on Windows, macOS, or Linux. Once step 4 is completed, **you can disconnect from the internet or enable Airplane Mode**—everything runs 100% locally.
 
-### 2. Install Dependencies
+---
+
+### Prerequisites
+1. **Python 3.10+** installed: [python.org/downloads](https://www.python.org/downloads/)
+2. **Git** installed: [git-scm.com](https://git-scm.com/)
+3. **Ollama** installed: [ollama.com/download](https://ollama.com/download)
+
+---
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/kotewar/Hacktoberfest-Hack-Day-Nagpur.git
+cd Hacktoberfest-Hack-Day-Nagpur
+```
+
+---
+
+### Step 2: Create & Activate a Virtual Environment
+
+**On Windows (PowerShell):**
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+*(If you see an execution policy error on PowerShell, run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` once).*
+
+**On macOS / Linux:**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+---
+
+### Step 3: Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Ingest Syllabus Textbooks (Optional)
-Sample chapters for **Class 10 & 11 Science, Physics, and Biology** are already included in [data/books/](data/books/). You can drop additional `.pdf` or `.txt` textbooks into `data/books/` and run:
+---
+
+### Step 4: Download the Local Gemma Model (One-Time Only)
+Start Ollama and pull the lightweight 4-bit quantized Gemma 2 model:
+```bash
+ollama run gemma2:2b
+```
+*Once you see the `>>>` prompt, type `/bye` and press Enter to exit back to your terminal.*  
+*(Optional higher-tier model: `ollama pull gemma4:e4b`)*.
+
+---
+
+### Step 5: Index Curriculum Textbooks
+Ingest the included sample chapters (Biology, Physics, Chemistry, CS & AI) into the local vector index:
 ```bash
 python scripts/ingest_books.py
 ```
-*(You can also upload textbooks directly within the app UI!)*
 
-### 4. Launch EduGemma Web App
+---
+
+### Step 6: Launch EduGemma Cockpit
 ```bash
 streamlit run app.py
 ```
-Open your browser at **`http://localhost:8501`**. You can safely turn off Wi-Fi or turn on Airplane Mode!
+Open your browser at **http://localhost:8501**.
+
+> ✈️ **Verify Airplane Mode:** Disconnect your Wi-Fi or turn on Airplane Mode. Every feature—textbook reader, Socratic Co-Pilot with thinking traces, visual mind maps, and quiz evaluations—continues to run smoothly with zero network access!
+
+---
+
+### Step 7: View Presentation & Architecture
+- **Interactive Presentation Deck:** Open [presentation.html](presentation.html) in any web browser (`file:///.../presentation.html`).
+- **Architecture Specification:** See [architecture.md](architecture.md) and [architecture.svg](architecture.svg).
+
+---
+
+## 🧹 Complete Teardown & Reset Guide
+
+When you are done testing or want to completely remove the application and free up disk space:
+
+### 1. Stop the Web Application
+In the terminal running Streamlit, press:
+```text
+Ctrl + C
+```
+
+---
+
+### 2. Stop the Ollama Service
+
+**On Windows (PowerShell):**
+```powershell
+# Stop any background Ollama processes
+Stop-Process -Name "*ollama*" -Force -ErrorAction SilentlyContinue
+```
+*(Or right-click the Ollama llama icon in the Windows taskbar tray and click **Quit Ollama**).*
+
+**On macOS / Linux:**
+```bash
+pkill ollama
+```
+
+---
+
+### 3. Deactivate the Virtual Environment
+```bash
+deactivate
+```
+
+---
+
+### 4. (Optional) Reset Student Progress / Fresh Start
+To clear quiz history, streaks, and reset student progress without deleting the code:
+
+**On Windows:**
+```powershell
+Remove-Item -Path "data\edugemma.db" -Force -ErrorAction SilentlyContinue
+python scripts\ingest_books.py
+```
+
+**On macOS / Linux:**
+```bash
+rm -f data/edugemma.db
+python scripts/ingest_books.py
+```
+
+---
+
+### 5. (Optional) Remove Downloaded Gemma Model
+To reclaim disk space used by the local LLM (~1.6 GB):
+```bash
+ollama rm gemma2:2b
+```
+
+---
+
+### 6. (Optional) Full Workspace Removal
+To completely remove the project directory and virtual environment from your computer:
+
+**On Windows (from parent folder):**
+```powershell
+cd ..
+Remove-Item -Recurse -Force "Hacktoberfest-Hack-Day-Nagpur"
+```
+
+**On macOS / Linux (from parent folder):**
+```bash
+cd ..
+rm -rf Hacktoberfest-Hack-Day-Nagpur
+```
 
 ---
 
