@@ -61,41 +61,69 @@ st.markdown("""
         align-items: center;
         justify-content: space-between;
         padding-bottom: 8px;
-        border-bottom: 2px solid #E5E7EB;
-        margin-bottom: 12px;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+        margin-bottom: 14px;
     }
     .cockpit-title {
-        font-size: 1.85rem;
+        font-size: 2.1rem;
         font-weight: 800;
-        color: #1E3A8A;
+        background: linear-gradient(90deg, #60A5FA, #A78BFA);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
         letter-spacing: -0.5px;
     }
     .offline-badge {
-        background-color: #ECFDF5;
-        color: #065F46;
+        background-color: rgba(16, 185, 129, 0.15);
+        color: #34D399;
         padding: 4px 12px;
         border-radius: 9999px;
         font-size: 0.82rem;
         font-weight: 700;
-        border: 1px solid #A7F3D0;
+        border: 1px solid rgba(16, 185, 129, 0.4);
     }
-    .topic-bar {
-        background: #F8FAFC;
-        border: 1px solid #E2E8F0;
-        border-radius: 10px;
-        padding: 12px 16px;
-        margin-bottom: 14px;
-    }
-    .stat-pill {
+    .stat-pill-streak {
         display: inline-flex;
         align-items: center;
-        background: #FFFFFF;
-        border: 1px solid #CBD5E1;
-        padding: 4px 10px;
+        background: rgba(245, 158, 11, 0.15);
+        border: 1px solid rgba(245, 158, 11, 0.4);
+        color: #FBBF24;
+        padding: 6px 12px;
         border-radius: 8px;
-        font-size: 0.85rem;
+        font-size: 0.84rem;
         font-weight: 600;
-        margin-right: 8px;
+    }
+    .stat-pill-mastery {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(16, 185, 129, 0.15);
+        border: 1px solid rgba(16, 185, 129, 0.4);
+        color: #34D399;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 600;
+    }
+    .stat-pill-interval {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(99, 102, 241, 0.15);
+        border: 1px solid rgba(99, 102, 241, 0.4);
+        color: #A5B4FC;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 600;
+    }
+    .stat-pill-review {
+        display: inline-flex;
+        align-items: center;
+        background: rgba(56, 189, 248, 0.15);
+        border: 1px solid rgba(56, 189, 248, 0.4);
+        color: #38BDF8;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 0.84rem;
+        font-weight: 600;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -110,28 +138,30 @@ def render_styled_table(df: pd.DataFrame) -> None:
             margin-top: 6px;
             margin-bottom: 6px;
             border-radius: 8px;
-            border: 1px solid #E2E8F0;
+            border: 1px solid rgba(128, 128, 128, 0.25);
+            background: rgba(128, 128, 128, 0.05);
         }}
         .cockpit-table {{
             width: 100%;
             border-collapse: collapse;
             font-size: 0.88rem;
             text-align: left;
+            color: inherit;
         }}
         .cockpit-table th {{
-            background-color: #F1F5F9;
-            color: #1E293B;
+            background-color: rgba(128, 128, 128, 0.12);
+            color: #60A5FA;
             font-weight: 600;
-            padding: 8px 12px;
-            border-bottom: 2px solid #CBD5E1;
+            padding: 9px 12px;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.2);
         }}
         .cockpit-table td {{
             padding: 8px 12px;
-            border-bottom: 1px solid #F1F5F9;
-            color: #334155;
+            border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+            color: inherit;
         }}
         .cockpit-table tr:hover {{
-            background-color: #F8FAFC;
+            background-color: rgba(128, 128, 128, 0.1);
         }}
     </style>
     <div class="cockpit-table-wrapper">
@@ -211,23 +241,50 @@ def main():
     with c_hdr1:
         st.markdown(f"<div class='cockpit-header'><div class='cockpit-title'>🎓 {APP_TITLE}</div></div>", unsafe_allow_html=True)
     with c_hdr2:
-        st.markdown(f"**Student:** `{active_user['username']}` &nbsp;|&nbsp; **Engine:** `{st.session_state.get('selected_model', DEFAULT_MODEL)}`")
+        st.markdown(f"<div style='text-align:right; padding-top:10px;'>👤 <b>Student:</b> <code>{active_user['username']}</code> &nbsp;|&nbsp; ⚡ <b>Model:</b> <code>{st.session_state.get('selected_model', DEFAULT_MODEL)}</code></div>", unsafe_allow_html=True)
 
-    # Global Topic Selector & Real-Time Mastery Strip
-    st.markdown("<div class='topic-bar'>", unsafe_allow_html=True)
-    col_sel, col_stat = st.columns([1.6, 2.0])
+    # Global Topic Selector & Real-Time Mastery Strip in a native theme-aware container
+    with st.container(border=True):
+        col_sel, col_stat = st.columns([1.5, 2.0], gap="medium")
 
-    with col_sel:
-        selected_file_name = st.selectbox(
-            "🎯 Active Study Topic / Chapter:",
-            options=list(file_map.keys()),
-            index=0 if valid_files else 0,
-            key="cockpit_chapter_selector"
-        )
-        target_file = file_map[selected_file_name]
-        parts = target_file.stem.replace("_", " ").split(" - ")
-        active_subject = parts[0].strip() if len(parts) > 1 else "General"
-        active_chapter = parts[1].strip() if len(parts) > 1 else target_file.stem.replace("_", " ")
+        with col_sel:
+            selected_file_name = st.selectbox(
+                "🎯 Active Study Topic / Chapter:",
+                options=list(file_map.keys()),
+                index=0 if valid_files else 0,
+                key="cockpit_chapter_selector"
+            )
+            target_file = file_map[selected_file_name]
+            parts = target_file.stem.replace("_", " ").split(" - ")
+            active_subject = parts[0].strip() if len(parts) > 1 else "General"
+            active_chapter = parts[1].strip() if len(parts) > 1 else target_file.stem.replace("_", " ")
+
+        # Topic-specific Mastery & Repetition Stats from SQLite
+        topic_rec = get_topic_mastery_record(active_user["id"], active_chapter)
+        summary_stats = get_study_summary(active_user["id"])
+
+        mastery_pct = topic_rec["mastery_percentage"] if topic_rec else 0.0
+        attempts = topic_rec["attempts"] if topic_rec else 0
+        interval = topic_rec["interval_days"] if topic_rec else 1
+        next_rev = topic_rec["next_review"] if topic_rec else "Not Scheduled"
+
+        if mastery_pct >= 80:
+            status_badge = "🟢 Mastered"
+        elif mastery_pct >= 50:
+            status_badge = "🟡 In Progress"
+        else:
+            status_badge = "🔴 Needs Practice"
+
+        with col_stat:
+            st.markdown("<div style='height: 28px;'></div>", unsafe_allow_html=True)
+            st.markdown(f"""
+            <div style='display:flex; flex-wrap:wrap; gap:8px; align-items:center;'>
+                <span class='stat-pill-streak'>🔥 Streak: <b>{summary_stats['streak_days']} Day(s)</b></span>
+                <span class='stat-pill-mastery'>🎯 Mastery: <b>{mastery_pct}% ({status_badge})</b></span>
+                <span class='stat-pill-interval'>🔁 Interval: <b>{interval}d</b></span>
+                <span class='stat-pill-review'>⏰ Review: <b>{next_rev[:10] if next_rev != 'Not Scheduled' else 'Today'}</b></span>
+            </div>
+            """, unsafe_allow_html=True)
 
     # Load active chapter text
     if target_file.suffix.lower() == ".pdf":
@@ -241,33 +298,6 @@ def main():
     st.session_state.active_chapter = active_chapter
     st.session_state.active_subject = active_subject
     st.session_state.active_content = active_content
-
-    # Topic-specific Mastery & Repetition Stats from SQLite
-    topic_rec = get_topic_mastery_record(active_user["id"], active_chapter)
-    summary_stats = get_study_summary(active_user["id"])
-
-    mastery_pct = topic_rec["mastery_percentage"] if topic_rec else 0.0
-    attempts = topic_rec["attempts"] if topic_rec else 0
-    interval = topic_rec["interval_days"] if topic_rec else 1
-    next_rev = topic_rec["next_review"] if topic_rec else "Not Scheduled"
-
-    if mastery_pct >= 80:
-        status_badge = "🟢 Mastered"
-    elif mastery_pct >= 50:
-        status_badge = "🟡 In Progress"
-    else:
-        status_badge = "🔴 Needs Practice"
-
-    with col_stat:
-        st.markdown(f"""
-        <div style='padding-top: 18px;'>
-            <span class='stat-pill'>🔥 Active Streak: <b>{summary_stats['streak_days']} Day(s)</b></span>
-            <span class='stat-pill'>🎯 Topic Mastery: <b>{mastery_pct}% ({status_badge})</b></span>
-            <span class='stat-pill'>🔁 Interval: <b>{interval}d</b></span>
-            <span class='stat-pill'>⏰ Next Review: <b>{next_rev[:10] if next_rev != 'Not Scheduled' else 'Today'}</b></span>
-        </div>
-        """, unsafe_allow_html=True)
-    st.markdown("</div>", unsafe_allow_html=True)
 
     # ================= TWO-COLUMN INTERACTIVE LEARNING CANVAS =================
     col_canvas, col_copilot = st.columns([1.15, 1.0], gap="medium")
