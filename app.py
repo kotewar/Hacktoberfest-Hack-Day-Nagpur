@@ -238,11 +238,22 @@ def main():
     valid_files = [f for f in available_files if f.suffix.lower() in [".pdf", ".txt", ".md"]]
     file_map = {f.name: f for f in valid_files}
 
-    c_hdr1, c_hdr2 = st.columns([3, 1])
+    c_hdr1, c_hdr2 = st.columns([2.2, 1.8])
     with c_hdr1:
         st.markdown(f"<div class='cockpit-header'><div class='cockpit-title'>🎓 {APP_TITLE}</div></div>", unsafe_allow_html=True)
     with c_hdr2:
-        st.markdown(f"<div style='text-align:right; padding-top:10px;'>👤 <b>Student:</b> <code>{active_user['username']}</code> &nbsp;|&nbsp; ⚡ <b>Model:</b> <code>{st.session_state.get('selected_model', DEFAULT_MODEL)}</code></div>", unsafe_allow_html=True)
+        # On-the-fly Model Switcher right on the top bar for easy demoing
+        c_user, c_mod = st.columns([1.0, 1.2])
+        with c_user:
+            st.markdown(f"<div style='padding-top:10px;'>👤 <b>Student:</b> <code>{active_user['username']}</code></div>", unsafe_allow_html=True)
+        with c_mod:
+            model_options = models if models else [DEFAULT_MODEL]
+            curr_sel = st.session_state.get("selected_model", DEFAULT_MODEL)
+            mod_idx = model_options.index(curr_sel) if curr_sel in model_options else 0
+            new_model = st.selectbox("⚡ Active Model:", options=model_options, index=mod_idx, key="top_model_switcher")
+            st.session_state.selected_model = new_model
+
+    current_model = st.session_state.get("selected_model", DEFAULT_MODEL)
 
     # Initialize custom topic cache in session state if not present
     if "custom_topics_cache" not in st.session_state:
@@ -321,10 +332,11 @@ def main():
 
             # Auto-synthesize or user clicked Generate button
             if synth_btn or active_chapter not in st.session_state.custom_topics_cache:
-                with st.spinner(f"Gemma is authoring a 100% offline study chapter on '{active_chapter}'..."):
+                with st.spinner(f"Gemma is authoring a 100% offline study chapter on '{active_chapter}' using {current_model}..."):
                     synthesized = synthesize_custom_topic_notes(
                         active_chapter,
-                        context=custom_ref_text if 'custom_ref_text' in locals() and custom_ref_text else ""
+                        context=custom_ref_text if 'custom_ref_text' in locals() and custom_ref_text else "",
+                        model=current_model
                     )
                     st.session_state.custom_topics_cache[active_chapter] = synthesized
                     st.session_state.active_custom_topic_name = active_chapter
@@ -393,7 +405,7 @@ def main():
             with c_act1:
                 if st.button("💡 Explain Simply", use_container_width=True):
                     with st.spinner("Gemma is simplifying with analogies..."):
-                        ans = explain_simply_analogy(active_content[:700])
+                        ans = explain_simply_analogy(active_content[:700], model=current_model)
                         st.session_state.study_messages.append({"role": "user", "content": f"Explain '{active_chapter}' simply with analogies."})
                         st.session_state.study_messages.append({"role": "assistant", "content": ans})
                         log_study_activity(active_user["id"], minutes_spent=2, questions_answered=0)
@@ -402,7 +414,7 @@ def main():
                 if st.button("🇮🇳 Village / Home Analogy", use_container_width=True):
                     with st.spinner("Crafting real-world rural/home analogy..."):
                         p = f"Explain the core principle of {active_chapter} using a vivid Indian kitchen, village farm, or cricket analogy:\n{active_content[:700]}"
-                        ans = query_ollama(p)
+                        ans = query_ollama(p, model=current_model)
                         st.session_state.study_messages.append({"role": "user", "content": f"Give a village/kitchen analogy for {active_chapter}."})
                         st.session_state.study_messages.append({"role": "assistant", "content": ans})
                         log_study_activity(active_user["id"], minutes_spent=2, questions_answered=0)
@@ -410,7 +422,7 @@ def main():
             with c_act3:
                 if st.button("📐 Key Formulas & Laws", use_container_width=True):
                     with st.spinner("Extracting formulas and definitions..."):
-                        ans = summarize_key_formulas(active_content[:1000])
+                        ans = summarize_key_formulas(active_content[:1000], model=current_model)
                         st.session_state.study_messages.append({"role": "user", "content": f"Key formulas and laws for {active_chapter}."})
                         st.session_state.study_messages.append({"role": "assistant", "content": ans})
                         log_study_activity(active_user["id"], minutes_spent=2, questions_answered=0)
@@ -422,11 +434,12 @@ def main():
                 if "cockpit_mindmap_cache" not in st.session_state:
                     st.session_state.cockpit_mindmap_cache = {}
 
-                if active_chapter not in st.session_state.cockpit_mindmap_cache:
+                map_key = f"{active_chapter}_{current_model}"
+                if map_key not in st.session_state.cockpit_mindmap_cache:
                     with st.spinner("Generating visual knowledge graph..."):
-                        st.session_state.cockpit_mindmap_cache[active_chapter] = generate_concept_graph(f"{active_chapter}\n{active_content[:1000]}")
+                        st.session_state.cockpit_mindmap_cache[map_key] = generate_concept_graph(f"{active_chapter}\n{active_content[:1000]}", model=current_model)
                 
-                g_data = st.session_state.cockpit_mindmap_cache[active_chapter]
+                g_data = st.session_state.cockpit_mindmap_cache[map_key]
                 st.markdown(f"```mermaid\n{g_data.get('mermaid', '')}\n```")
                 
                 # Clickable concept nodes
@@ -436,7 +449,10 @@ def main():
                     n_lbl = node.get("label", f"Node {idx+1}")
                     if st.button(f"💡 Explain: {n_lbl}", key=f"cockpit_node_{idx}"):
                         with st.spinner(f"Gemma is breaking down {n_lbl}..."):
-                            exp = explain_concept_node(n_lbl, topic_context=active_content[:800])
+                            exp = explain_concept_node(n_lbl, topic_context=active_content[:800], model=current_model)
+                            st.session_state.study_messages.append({"role": "user", "content": f"Explain concept node: {n_lbl}"})
+                            st.session_state.study_messages.append({"role": "assistant", "content": exp})
+                            st.rerun()
                             st.session_state.study_messages.append({"role": "user", "content": f"Explain concept node: {n_lbl}"})
                             st.session_state.study_messages.append({"role": "assistant", "content": exp})
                             st.rerun()
@@ -506,7 +522,8 @@ def main():
                     thought, reply, telem = ask_socratic_tutor_with_thinking(
                         query=user_input,
                         context=context,
-                        socratic_mode=socratic_mode
+                        socratic_mode=socratic_mode,
+                        model=current_model
                     )
                     st.session_state.study_messages.append({
                         "role": "assistant",
@@ -515,7 +532,7 @@ def main():
                         "telemetry": telem
                     })
                 else:
-                    reply = ask_socratic_tutor(user_input, context=context, socratic_mode=socratic_mode)
+                    reply = ask_socratic_tutor(user_input, context=context, socratic_mode=socratic_mode, model=current_model)
                     st.session_state.study_messages.append({"role": "assistant", "content": reply})
 
             log_study_activity(active_user["id"], minutes_spent=3, questions_answered=0)
@@ -535,11 +552,11 @@ def main():
     with tab_quiz_mcq:
         c_qhead1, c_qhead2 = st.columns([3, 1])
         with c_qhead1:
-            st.caption(f"Generated directly from the active chapter: **{active_chapter}**")
+            st.caption(f"Generated directly from the active chapter: **{active_chapter}** ({current_model})")
         with c_qhead2:
             if st.button("⚡ Generate New Quiz", type="primary", use_container_width=True):
-                with st.spinner(f"Gemma is generating questions for {active_chapter}..."):
-                    quiz_items = generate_quiz_json(active_content[:1500], count=3)
+                with st.spinner(f"Gemma ({current_model}) is generating questions for {active_chapter}..."):
+                    quiz_items = generate_quiz_json(active_content[:1500], count=3, model=current_model)
                     st.session_state.cockpit_quiz = quiz_items
                     st.session_state.cockpit_quiz_submitted = False
                     st.session_state.cockpit_quiz_topic = active_chapter
@@ -605,9 +622,9 @@ def main():
         
         if st.button("🔍 Grade My Answer Out of 5 Marks", type="primary"):
             if student_ans.strip():
-                with st.spinner("Gemma is evaluating your answer against textbook ground truth..."):
+                with st.spinner(f"Gemma ({current_model}) is evaluating your answer against textbook ground truth..."):
                     context_chunk = rag_engine.retrieve_context(subj_q, subject=active_subject, top_k=2) or active_content[:800]
-                    evaluation = evaluate_subjective_answer(subj_q, reference_facts=context_chunk, student_answer=student_ans)
+                    evaluation = evaluate_subjective_answer(subj_q, reference_facts=context_chunk, student_answer=student_ans, model=current_model)
                     st.markdown("### 📊 AI Tutor Evaluation:")
                     st.markdown(evaluation)
                     log_study_activity(active_user["id"], minutes_spent=4, questions_answered=1)
